@@ -146,28 +146,38 @@ namespace TypeName
         {
             var def = type.GetGenericTypeDefinition();
 
+            string ns = null;
+            int genericPosition = 0;
+            if (type.DeclaringType == null)
+            {
+                ns = type.Namespace;
+            }
+            else if (type.DeclaringType.IsGenericType)
+            {
+                genericPosition = type.DeclaringType.GetGenericArguments().Length;
+            }   
+
             var cName = type.Name;
             var iQuota = cName.IndexOf('`');
-            cName = cName.Substring(0, iQuota);
-            var iDot = cName.LastIndexOf('.');
-            if (iDot >= 0)
+            if (iQuota >= 0)
             {
-                cName = cName.Substring(iDot);
+                cName = cName.Substring(0, iQuota);
             }
 
-            var ns = type.DeclaringType == null ? type.Namespace : null;
-
             var name = new NameToken(def, cName, ns);
-            foreach (var genericArgument in type.GetGenericArguments())
+            var genericArguments = type.GetGenericArguments();
+
+            for(var i=genericPosition; i < genericArguments.Length; i++)
             {
+                var genericArgument = genericArguments[i];
+                generics.MoveNext();
+
                 if (!genericArgument.IsGenericParameter)
                 {
-                    generics.MoveNext();
                     name.GenericNameTokens.Add(Create(genericArgument, generics));
                 }
                 else
                 {
-                    generics.MoveNext();
                     var genericType = generics.Current;
                     name.GenericNameTokens.Add(Create(genericType, generics));
                 }

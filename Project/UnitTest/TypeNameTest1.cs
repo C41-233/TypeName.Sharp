@@ -6,7 +6,7 @@ using TypeName;
 namespace TypeNameTest
 {
     [TestClass]
-    public class TypeNameTest
+    public class TypeNameTest1
     {
         [TestMethod]
         public void Test1()

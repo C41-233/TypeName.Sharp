@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{75C5144D-2926-403C-8F13-CAA6F62F93DA}</ProjectGuid>
+    <ProjectGuid>{7C255DB8-9F8A-4010-98E9-13FAD994EFF2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TypeNameTest</RootNamespace>
     <AssemblyName>UnitTest</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
@@ -48,13 +48,18 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\MSTestA.cs" />
-    <Compile Include="Base\NSTestA.cs" />
-    <Compile Include="Base\TestA.cs" />
+    <Compile Include="TypeNameTest1.cs" />
+    <Compile Include="TypeNameTest2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TypeNameTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TestBase\TestBase.csproj">
+      <Project>{e3670243-48e6-49a7-bd94-ff20fe99509c}</Project>
+      <Name>TestBase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TypeName\TypeName.csproj">
       <Project>{f41be5ad-dc61-4e88-b697-87ab59b9b0de}</Project>
       <Name>TypeName</Name>
