@@ -51,6 +51,7 @@
     <Compile Include="TypeNameTest1.cs" />
     <Compile Include="TypeNameTest2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeNameTest3.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

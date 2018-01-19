@@ -12,4 +12,9 @@ public class TestA
 
     public static void Func2<T>(Dictionary<int, T> dic) { }
 
+    public class TestC<K>
+    {
+        public static void Func3(List<K> list) { }
+    }
+
 }

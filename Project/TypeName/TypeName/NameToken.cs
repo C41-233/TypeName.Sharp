@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using TypeName.Utility;
 
@@ -41,28 +40,6 @@ namespace TypeName
 
         public static NameToken Create(Type type)
         {
-            if (type.IsGenericType)
-            {
-                return Create(type, type.GetGenericArguments().Cast<Type>().GetEnumerator());
-            }
-            return Create(type, EmptyEnumerator.Instance);
-        }
-
-        private static NameToken Create(Type type, IEnumerator<Type> generics)
-        {
-            if (type.IsGenericParameter)
-            {
-                return CreateGenericParameter(type);
-            }
-            if (type.DeclaringType != null)
-            {
-                return CreateInner(type, generics);
-            }
-            return CreateRoot(type, generics);
-        }
-
-        private static NameToken CreateRoot(Type type, IEnumerator<Type> generics)
-        {
             if (SimpleNames.ContainsKey(type))
             {
                 return CreateSimple(type);
@@ -70,6 +47,14 @@ namespace TypeName
             if (type.IsArray)
             {
                 return CreateArray(type);
+            }
+            if (type.IsGenericParameter)
+            {
+                return CreateGenericParameter(type);
+            }
+            if (type.DeclaringType != null)
+            {
+                return CreateInner(type);
             }
             if (type.IsGenericType == false)
             {
@@ -79,7 +64,7 @@ namespace TypeName
             {
                 return CreateNullable(type);
             }
-            return CreateGeneric(type, generics);
+            return CreateGeneric(type);
         }
 
         private static NameToken CreateSimple(Type type)
@@ -125,37 +110,50 @@ namespace TypeName
             return new NameToken(type, type.Name, null);
         }
 
-        private static NameToken CreateInner(Type type, IEnumerator<Type> generics)
+        private static NameToken CreateInner(Type type)
         {
+            if (type.IsGenericType)
+            {
+                return CreateGeneric(type);
+            }
+
             var super = type.DeclaringType;
-            var parent = Create(super, generics);
-            NameToken name;
-            if (!type.IsGenericType)
-            {
-                name = CreateRoot(type, generics);
-            }
-            else
-            {
-                name = CreateGeneric(type, generics);
-            }
+            var parent = Create(super);
+
+            var name = CreateDirect(type);
             name.Parent = parent;
             return name;
         }
 
-        private static NameToken CreateGeneric(Type type, IEnumerator<Type> generics)
+        private static NameToken CreateGeneric(Type type)
         {
-            var def = type.GetGenericTypeDefinition();
+            return CreateGeneric(type, new GenericList(type));
+        }
 
+        private static NameToken CreateGeneric(Type type, GenericList generics)
+        {
+            NameToken parent = null;
             string ns = null;
             int genericPosition = 0;
-            if (type.DeclaringType == null)
+
+            if (type.DeclaringType != null)
+            {
+                if (type.DeclaringType.IsGenericType)
+                {
+                    parent = CreateGeneric(type.DeclaringType, generics);
+                    genericPosition = type.DeclaringType.GetGenericArguments().Length;
+                }
+                else
+                {
+                    parent = Create(type.DeclaringType);
+                }
+            }
+            else
             {
                 ns = type.Namespace;
             }
-            else if (type.DeclaringType.IsGenericType)
-            {
-                genericPosition = type.DeclaringType.GetGenericArguments().Length;
-            }   
+
+            var def = type.GetGenericTypeDefinition();
 
             var cName = type.Name;
             var iQuota = cName.IndexOf('`');
@@ -164,22 +162,25 @@ namespace TypeName
                 cName = cName.Substring(0, iQuota);
             }
 
-            var name = new NameToken(def, cName, ns);
+            var name = new NameToken(def, cName, ns)
+            {
+                Parent = parent
+            };
+
             var genericArguments = type.GetGenericArguments();
 
-            for(var i=genericPosition; i < genericArguments.Length; i++)
+            for(var i = genericPosition; i < genericArguments.Length; i++)
             {
                 var genericArgument = genericArguments[i];
-                generics.MoveNext();
+                var genericType = generics.Next();
 
                 if (!genericArgument.IsGenericParameter)
                 {
-                    name.GenericNameTokens.Add(Create(genericArgument, generics));
+                    name.GenericNameTokens.Add(Create(genericArgument));
                 }
                 else
                 {
-                    var genericType = generics.Current;
-                    name.GenericNameTokens.Add(Create(genericType, generics));
+                    name.GenericNameTokens.Add(Create(genericType));
                 }
             }
             return name;

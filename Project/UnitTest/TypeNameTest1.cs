@@ -91,19 +91,6 @@ namespace TypeNameTest
         }
 
         [TestMethod]
-        public void Test6()
-        {
-            Assert.AreEqual("T", typeof(List<>).GetGenericArguments()[0].GetSourceName());
-            Assert.AreEqual("T", typeof(List<>).GetGenericArguments()[0].GetSourceFullName());
-
-            Assert.AreEqual("List<T>", typeof(TestA).GetMethod("Func1").GetParameters()[0].ParameterType.GetSourceName());
-            Assert.AreEqual("System.Collections.Generic.List<T>", typeof(TestA).GetMethod("Func1").GetParameters()[0].ParameterType.GetSourceFullName());
-
-            Assert.AreEqual("Dictionary<int,T>", typeof(TestA).GetMethod("Func2").GetParameters()[0].ParameterType.GetSourceName());
-            Assert.AreEqual("System.Collections.Generic.Dictionary<int,T>", typeof(TestA).GetMethod("Func2").GetParameters()[0].ParameterType.GetSourceFullName());
-        }
-
-        [TestMethod]
         public void Test7()
         {
             Assert.AreEqual("TestA", typeof(TestA).GetSourceName());
