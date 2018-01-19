@@ -5,11 +5,13 @@ VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeName", "TypeName\TypeName.csproj", "{F41BE5AD-DC61-4E88-B697-87AB59B9B0DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{5DD0C9DF-38CE-452A-A9A4-42CFF8D2A699}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Test\Main\Main.csproj", "{5DD0C9DF-38CE-452A-A9A4-42CFF8D2A699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{7C255DB8-9F8A-4010-98E9-13FAD994EFF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "Test\UnitTest\UnitTest.csproj", "{7C255DB8-9F8A-4010-98E9-13FAD994EFF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBase", "TestBase\TestBase.csproj", "{E3670243-48E6-49A7-BD94-FF20FE99509C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBase", "Test\TestBase\TestBase.csproj", "{E3670243-48E6-49A7-BD94-FF20FE99509C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{BAD676CE-A816-4E0C-9294-46234F9F2055}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +38,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5DD0C9DF-38CE-452A-A9A4-42CFF8D2A699} = {BAD676CE-A816-4E0C-9294-46234F9F2055}
+		{7C255DB8-9F8A-4010-98E9-13FAD994EFF2} = {BAD676CE-A816-4E0C-9294-46234F9F2055}
+		{E3670243-48E6-49A7-BD94-FF20FE99509C} = {BAD676CE-A816-4E0C-9294-46234F9F2055}
 	EndGlobalSection
 EndGlobal
