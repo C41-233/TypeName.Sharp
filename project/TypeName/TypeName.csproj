@@ -45,7 +45,6 @@
     <Compile Include="TypeName\NameToken.cs" />
     <Compile Include="TypeName\NameTokeService.cs" />
     <Compile Include="TypeName\TypeNameExtend.cs" />
-    <Compile Include="TypeName\Utility\EmptyEnumerator.cs" />
     <Compile Include="TypeName\Utility\GenericList.cs" />
     <Compile Include="TypeName\Utility\StringExtend.cs" />
   </ItemGroup>
