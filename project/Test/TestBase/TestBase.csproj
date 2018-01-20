@@ -45,6 +45,7 @@
     <Compile Include="NSTestA.cs" />
     <Compile Include="TestA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestInherit.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

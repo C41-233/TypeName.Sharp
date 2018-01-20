@@ -1,6 +1,7 @@
 ﻿using System;
 using GS;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TestBase;
 using TypeName;
 
 namespace TypeNameTest
@@ -32,6 +33,16 @@ namespace TypeNameTest
             Assert.AreEqual("TestD.TestE<long,long>", typeof(TestD.TestE<long,long>).GetSourceName());
 
             Assert.AreEqual("TestA<T1,T2>.TestC.TestF<T1>", typeof(TestA<,>.TestC.TestF<>).GetSourceName());
+        }
+
+        [TestMethod]
+        public void TestGenric3()
+        {
+            Assert.AreEqual("TestInherit<T>", typeof(TestInherit<>).GetSourceName());
+            Assert.AreEqual("List<int>", typeof(TestInherit<>).BaseType.GetSourceName());
+
+            Assert.AreEqual("TestInherit<T,K>", typeof(TestInherit<,>).GetSourceName());
+            Assert.AreEqual("List<K>", typeof(TestInherit<,>).BaseType.GetSourceName());
         }
 
     }
