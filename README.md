@@ -8,19 +8,19 @@ Framework提供的System.Type有三个获取字符串名称的属性/函数，�
 2. 多层级的数组类型与语法形式相反，例如int[][,]会被输出成System.Int32[,][]。
 3. 泛型类型，例如List<T>会被输出成System.Collection.Generic.List&#96;1，而List<int>甚至被输出成System.Collections.Generic.List&#96;1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]。
 
-TypeName能处理所有情况，并将一个类型按照语法形式输出。
+TypeName为Type、Method、Property、Field、Parameter添加了一些扩展函数来处理所有情况，使得一个类型能够按照语法形式输出。
 
 ```C#
 using TypeName;
 
 //List<T>
-Console.WriteLine(typeof(List<>).GetNameString());
+Console.WriteLine(typeof(List<>).GetSourceName());
 
 //List<int>
-Console.WriteLine(typeof(List<int>).GetNameString());
+Console.WriteLine(typeof(List<int>).GetSourceName());
 
 //System.Collection.Generic.List<System.DateTime?>
-Console.WriteLine(typeof(List<DateTime?>).GetFullNameString());
+Console.WriteLine(typeof(List<DateTime?>).GetSourceFullName());
 ```
 
 比较结果：https://c41-233.github.io/TypeName/source-name.html
