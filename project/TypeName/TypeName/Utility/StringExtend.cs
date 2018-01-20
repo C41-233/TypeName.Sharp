@@ -9,7 +9,7 @@ namespace TypeName.Utility
         {
             if (sb.EndsWith(token))
             {
-                sb.Remove(sb.Length - token.Length - 1, token.Length);
+                sb.Remove(sb.Length - token.Length, token.Length);
             }
         }
 
@@ -55,7 +55,7 @@ namespace TypeName.Utility
 
         public static bool EndsWith(this StringBuilder sb, string value)
         {
-            for (int i = sb.Length - 1, j = 0; j < value.Length; i--, j++)
+            for (int i = sb.Length - 1, j = value.Length-1; j >= 0; i--, j--)
             {
                 if (i < 0)
                 {
