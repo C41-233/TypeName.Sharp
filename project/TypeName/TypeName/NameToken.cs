@@ -153,7 +153,6 @@ namespace TypeName
                 ns = type.Namespace;
             }
 
-            var def = type.GetGenericTypeDefinition();
 
             var cName = type.Name;
             var iQuota = cName.IndexOf('`');
@@ -162,7 +161,7 @@ namespace TypeName
                 cName = cName.Substring(0, iQuota);
             }
 
-            var name = new NameToken(def, cName, ns)
+            var name = new NameToken(type.GetGenericTypeDefinition(), cName, ns)
             {
                 Parent = parent
             };
@@ -174,13 +173,13 @@ namespace TypeName
                 var genericArgument = genericArguments[i];
                 var genericType = generics.Next();
 
-                if (!genericArgument.IsGenericParameter)
+                if (genericArgument.IsGenericParameter)
                 {
-                    name.GenericNameTokens.Add(Create(genericArgument));
+                    name.GenericNameTokens.Add(Create(genericType));
                 }
                 else
                 {
-                    name.GenericNameTokens.Add(Create(genericType));
+                    name.GenericNameTokens.Add(Create(genericArgument));
                 }
             }
             return name;
