@@ -1,0 +1,50 @@
+﻿[
+  {
+    "value": "List<>",
+    "name": "List`1",
+    "fullname": "System.Collections.Generic.List`1",
+    "tostring": "System.Collections.Generic.List`1[T]",
+    "sourcename": "List<T>",
+    "sourcefullname": "System.Collections.Generic.List<T>"
+  },
+  {
+    "value": "List<int>",
+    "name": "List`1",
+    "fullname": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+    "tostring": "System.Collections.Generic.List`1[System.Int32]",
+    "sourcename": "List<int>",
+    "sourcefullname": "System.Collections.Generic.List<int>"
+  },
+  {
+    "value": "List<DateTime?>",
+    "name": "List`1",
+    "fullname": "System.Collections.Generic.List`1[[System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+    "tostring": "System.Collections.Generic.List`1[System.Nullable`1[System.DateTime]]",
+    "sourcename": "List<DateTime?>",
+    "sourcefullname": "System.Collections.Generic.List<System.DateTime?>"
+  },
+  {
+    "value": "Dictionary<,>",
+    "name": "Dictionary`2",
+    "fullname": "System.Collections.Generic.Dictionary`2",
+    "tostring": "System.Collections.Generic.Dictionary`2[TKey,TValue]",
+    "sourcename": "Dictionary<TKey,TValue>",
+    "sourcefullname": "System.Collections.Generic.Dictionary<TKey,TValue>"
+  },
+  {
+    "value": "Dictionary<double, IDisposable>",
+    "name": "Dictionary`2",
+    "fullname": "System.Collections.Generic.Dictionary`2[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.IDisposable, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+    "tostring": "System.Collections.Generic.Dictionary`2[System.Double,System.IDisposable]",
+    "sourcename": "Dictionary<double,IDisposable>",
+    "sourcefullname": "System.Collections.Generic.Dictionary<double,System.IDisposable>"
+  },
+  {
+    "value": "Dictionary<List<int>, StringBuilder[,]>",
+    "name": "Dictionary`2",
+    "fullname": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Text.StringBuilder[,], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+    "tostring": "System.Collections.Generic.Dictionary`2[System.Collections.Generic.List`1[System.Int32],System.Text.StringBuilder[,]]",
+    "sourcename": "Dictionary<List<int>,StringBuilder[,]>",
+    "sourcefullname": "System.Collections.Generic.Dictionary<System.Collections.Generic.List<int>,System.Text.StringBuilder[,]>"
+  }
+]

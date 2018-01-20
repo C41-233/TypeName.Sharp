@@ -1,0 +1,50 @@
+﻿[
+  {
+    "value": "float?",
+    "name": "Nullable`1",
+    "fullname": "System.Nullable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+    "tostring": "System.Nullable`1[System.Single]",
+    "sourcename": "float?",
+    "sourcefullname": "float?"
+  },
+  {
+    "value": "Single?",
+    "name": "Nullable`1",
+    "fullname": "System.Nullable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+    "tostring": "System.Nullable`1[System.Single]",
+    "sourcename": "float?",
+    "sourcefullname": "float?"
+  },
+  {
+    "value": "Nullable<float>",
+    "name": "Nullable`1",
+    "fullname": "System.Nullable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+    "tostring": "System.Nullable`1[System.Single]",
+    "sourcename": "float?",
+    "sourcefullname": "float?"
+  },
+  {
+    "value": "Nullable<Single>",
+    "name": "Nullable`1",
+    "fullname": "System.Nullable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+    "tostring": "System.Nullable`1[System.Single]",
+    "sourcename": "float?",
+    "sourcefullname": "float?"
+  },
+  {
+    "value": "DateTime?",
+    "name": "Nullable`1",
+    "fullname": "System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+    "tostring": "System.Nullable`1[System.DateTime]",
+    "sourcename": "DateTime?",
+    "sourcefullname": "System.DateTime?"
+  },
+  {
+    "value": "Nullable<DateTime>",
+    "name": "Nullable`1",
+    "fullname": "System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+    "tostring": "System.Nullable`1[System.DateTime]",
+    "sourcename": "DateTime?",
+    "sourcefullname": "System.DateTime?"
+  }
+]

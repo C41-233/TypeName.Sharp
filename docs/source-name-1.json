@@ -1,0 +1,58 @@
+﻿[
+  {
+    "value": "int",
+    "name": "Int32",
+    "fullname": "System.Int32",
+    "tostring": "System.Int32",
+    "sourcename": "int",
+    "sourcefullname": "int"
+  },
+  {
+    "value": "Int32",
+    "name": "Int32",
+    "fullname": "System.Int32",
+    "tostring": "System.Int32",
+    "sourcename": "int",
+    "sourcefullname": "int"
+  },
+  {
+    "value": "byte",
+    "name": "Byte",
+    "fullname": "System.Byte",
+    "tostring": "System.Byte",
+    "sourcename": "byte",
+    "sourcefullname": "byte"
+  },
+  {
+    "value": "Byte",
+    "name": "Byte",
+    "fullname": "System.Byte",
+    "tostring": "System.Byte",
+    "sourcename": "byte",
+    "sourcefullname": "byte"
+  },
+  {
+    "value": "string",
+    "name": "String",
+    "fullname": "System.String",
+    "tostring": "System.String",
+    "sourcename": "string",
+    "sourcefullname": "string"
+  },
+  {
+    "value": "String",
+    "name": "String",
+    "fullname": "System.String",
+    "tostring": "System.String",
+    "sourcename": "string",
+    "sourcefullname": "string"
+  },
+  {
+    "value": "void",
+    "name": "Void",
+    "fullname": "System.Void",
+    "tostring": "System.Void",
+    "sourcename": "void",
+    "sourcefullname": "void"
+  }
+]

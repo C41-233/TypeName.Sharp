@@ -1,0 +1,18 @@
+﻿[
+  {
+    "value": "Dictionary<,>.KeyCollection",
+    "name": "KeyCollection",
+    "fullname": "System.Collections.Generic.Dictionary`2+KeyCollection",
+    "tostring": "System.Collections.Generic.Dictionary`2+KeyCollection[TKey,TValue]",
+    "sourcename": "Dictionary<TKey,TValue>.KeyCollection",
+    "sourcefullname": "System.Collections.Generic.Dictionary<TKey,TValue>.KeyCollection"
+  },
+  {
+    "value": "Dictionary<long, StringBuilder>.KeyCollection",
+    "name": "KeyCollection",
+    "fullname": "System.Collections.Generic.Dictionary`2+KeyCollection[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Text.StringBuilder, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+    "tostring": "System.Collections.Generic.Dictionary`2+KeyCollection[System.Int64,System.Text.StringBuilder]",
+    "sourcename": "Dictionary<long,StringBuilder>.KeyCollection",
+    "sourcefullname": "System.Collections.Generic.Dictionary<long,System.Text.StringBuilder>.KeyCollection"
+  }
+]

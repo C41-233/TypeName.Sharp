@@ -1,0 +1,50 @@
+﻿[
+  {
+    "value": "int[]",
+    "name": "Int32[]",
+    "fullname": "System.Int32[]",
+    "tostring": "System.Int32[]",
+    "sourcename": "int[]",
+    "sourcefullname": "int[]"
+  },
+  {
+    "value": "uint[][]",
+    "name": "UInt32[][]",
+    "fullname": "System.UInt32[][]",
+    "tostring": "System.UInt32[][]",
+    "sourcename": "uint[][]",
+    "sourcefullname": "uint[][]"
+  },
+  {
+    "value": "string[,][]",
+    "name": "String[][,]",
+    "fullname": "System.String[][,]",
+    "tostring": "System.String[][,]",
+    "sourcename": "string[,][]",
+    "sourcefullname": "string[,][]"
+  },
+  {
+    "value": "DateTime[][,]",
+    "name": "DateTime[,][]",
+    "fullname": "System.DateTime[,][]",
+    "tostring": "System.DateTime[,][]",
+    "sourcename": "DateTime[][,]",
+    "sourcefullname": "System.DateTime[][,]"
+  },
+  {
+    "value": "decimal?[][][]",
+    "name": "Nullable`1[][][]",
+    "fullname": "System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]][][][]",
+    "tostring": "System.Nullable`1[System.Decimal][][][]",
+    "sourcename": "decimal?[][][]",
+    "sourcefullname": "decimal?[][][]"
+  },
+  {
+    "value": "DateTime?[][][,]",
+    "name": "Nullable`1[,][][]",
+    "fullname": "System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]][,][][]",
+    "tostring": "System.Nullable`1[System.DateTime][,][][]",
+    "sourcename": "DateTime?[][][,]",
+    "sourcefullname": "System.DateTime?[][][,]"
+  }
+]

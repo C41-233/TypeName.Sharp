@@ -1,0 +1,34 @@
+﻿[
+  {
+    "value": "DateTime",
+    "name": "DateTime",
+    "fullname": "System.DateTime",
+    "tostring": "System.DateTime",
+    "sourcename": "DateTime",
+    "sourcefullname": "System.DateTime"
+  },
+  {
+    "value": "StringBuilder",
+    "name": "StringBuilder",
+    "fullname": "System.Text.StringBuilder",
+    "tostring": "System.Text.StringBuilder",
+    "sourcename": "StringBuilder",
+    "sourcefullname": "System.Text.StringBuilder"
+  },
+  {
+    "value": "BindingFlags",
+    "name": "BindingFlags",
+    "fullname": "System.Reflection.BindingFlags",
+    "tostring": "System.Reflection.BindingFlags",
+    "sourcename": "BindingFlags",
+    "sourcefullname": "System.Reflection.BindingFlags"
+  },
+  {
+    "value": "FlagsAttribute",
+    "name": "FlagsAttribute",
+    "fullname": "System.FlagsAttribute",
+    "tostring": "System.FlagsAttribute",
+    "sourcename": "FlagsAttribute",
+    "sourcefullname": "System.FlagsAttribute"
+  }
+]
