@@ -19,7 +19,7 @@ Console.WriteLine(typeof(List<>).GetSourceName());
 //List<int>
 Console.WriteLine(typeof(List<int>).GetSourceName());
 
-//System.Collection.Generic.List<System.DateTime?>
+//System.Collections.Generic.List<System.DateTime?>
 Console.WriteLine(typeof(List<DateTime?>).GetSourceFullName());
 ```
 
