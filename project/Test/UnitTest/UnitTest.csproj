@@ -58,13 +58,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TestBase\TestBase.csproj">
-      <Project>{e3670243-48e6-49a7-bd94-ff20fe99509c}</Project>
-      <Name>TestBase</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\TypeName\TypeName.csproj">
       <Project>{f41be5ad-dc61-4e88-b697-87ab59b9b0de}</Project>
       <Name>TypeName</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestBase\TestBase.csproj">
+      <Project>{e3670243-48e6-49a7-bd94-ff20fe99509c}</Project>
+      <Name>TestBase</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
