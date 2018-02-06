@@ -58,9 +58,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\TypeName\TypeName.csproj">
-      <Project>{f41be5ad-dc61-4e88-b697-87ab59b9b0de}</Project>
-      <Name>TypeName</Name>
+    <ProjectReference Include="..\..\TypeName.Sharp\TypeName.Sharp.csproj">
+      <Project>{fe6f53bb-3b12-4950-9526-372fb348f4b4}</Project>
+      <Name>TypeName.Sharp</Name>
     </ProjectReference>
     <ProjectReference Include="..\TestBase\TestBase.csproj">
       <Project>{e3670243-48e6-49a7-bd94-ff20fe99509c}</Project>

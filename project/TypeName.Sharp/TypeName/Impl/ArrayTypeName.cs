@@ -1,6 +1,6 @@
 ﻿using System;
 using TypeName.Container;
-using TypeName.Util;
+using TypeName.Filter;
 
 namespace TypeName
 {
@@ -27,9 +27,14 @@ namespace TypeName
             ComponentType = TypeNameFactory.Create(type, flags);
         }
 
-        internal override void SetNoNamespaceIfPossible(NameContext conext)
+        public override void FilterNamespace(NamespaceFilter filter)
         {
-            ComponentType.SetNoNamespaceIfPossible(conext);
+            ComponentType.FilterNamespace(filter);
+        }
+
+        public override void ClearNamespace(NamespaceFilter filter)
+        {
+            ComponentType.ClearNamespace(filter);
         }
     }
 }

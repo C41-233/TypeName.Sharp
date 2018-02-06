@@ -7,9 +7,8 @@ namespace TypeName
     {
         
         Default = 0,
-        NoNamespace = 0x01,
-        FullPrimitive = 0x02,
-        FullNullable = 0x04,
+        FullPrimitive = 0x01,
+        FullNullable = 0x02,
 
     }
 

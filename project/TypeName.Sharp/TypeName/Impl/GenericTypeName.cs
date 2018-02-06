@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TypeName.Container;
-using TypeName.Util;
+using TypeName.Filter;
 
 namespace TypeName
 {
@@ -23,18 +23,9 @@ namespace TypeName
             var visitor = new GenericVisitor(type);
 
             {
-                var supers = new List<Type>();
+                var super = type.DeclaringType;
+                while (super != null)
                 {
-                    var super = type.DeclaringType;
-                    while (super != null)
-                    {
-                        supers.Add(super);
-                        super = super.DeclaringType;
-                    }
-                }
-                for (var i = supers.Count - 1; i >= 0; i--)
-                {
-                    var super = supers[i];
                     if (super.IsGenericType)
                     {
                         BaseNames.AddBefore(new TypeNameView(super, visitor, flags));
@@ -43,27 +34,49 @@ namespace TypeName
                     {
                         BaseNames.AddBefore(new TypeNameView(super));
                     }
+                    super = super.DeclaringType;
                 }
             }
 
             var genericName = type.Name;
             var iQuota = genericName.LastIndexOf('`');
 
-            Name = genericName.Substring(0, iQuota);
+            int lenGeneric;
+            if (iQuota > 0)
+            {
+                Name = iQuota < 0 ? genericName : genericName.Substring(0, iQuota);
+                lenGeneric = int.Parse(genericName.Substring(iQuota + 1));
+            }
+            else
+            {
+                Name = genericName;
+                lenGeneric = 0;
+            }
 
-            var lenGeneric = int.Parse(genericName.Substring(iQuota + 1));
             for (var i=0; i<lenGeneric; i++)
             {
                 Generics.Add(TypeNameFactory.Create(visitor.Next(), flags));
             }
         }
 
-        internal override void SetNoNamespaceIfPossible(NameContext context)
+        public override void FilterNamespace(NamespaceFilter filter)
         {
-            Namespace.Clear();
-            foreach (var type in Generics.Cast<TypeName>())
+            filter.Add(this);
+            foreach (var type in Generics)
             {
-                type.SetNoNamespaceIfPossible(context);
+                type.FilterNamespace(filter);
+            }
+        }
+
+        public override void ClearNamespace(NamespaceFilter filter)
+        {
+            if (filter.NeedClear(this))
+            {
+                Namespace.Clear();
+            }
+            foreach (var type in Generics)
+            {
+                type.ClearNamespace(filter);
             }
         }
     }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using TypeName.Container;
-using TypeName.Util;
+using TypeName.Filter;
 
 namespace TypeName
 {
@@ -50,9 +50,17 @@ namespace TypeName
             }
         }
 
-        internal override void SetNoNamespaceIfPossible(NameContext context)
+        public override void FilterNamespace(NamespaceFilter filter)
         {
-            Namespace.Clear();
+            filter.Add(this);
+        }
+
+        public override void ClearNamespace(NamespaceFilter filter)
+        {
+            if (filter.NeedClear(this))
+            {
+                Namespace.Clear();
+            }
         }
     }
 }

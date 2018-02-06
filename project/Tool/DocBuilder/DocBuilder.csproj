@@ -36,12 +36,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -53,9 +47,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\TypeName\TypeName.csproj">
-      <Project>{f41be5ad-dc61-4e88-b697-87ab59b9b0de}</Project>
-      <Name>TypeName</Name>
+    <ProjectReference Include="..\..\TypeName.Sharp\TypeName.Sharp.csproj">
+      <Project>{fe6f53bb-3b12-4950-9526-372fb348f4b4}</Project>
+      <Name>TypeName.Sharp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

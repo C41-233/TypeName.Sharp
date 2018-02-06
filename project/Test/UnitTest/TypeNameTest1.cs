@@ -11,101 +11,101 @@ namespace TypeNameTest
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual("int", typeof(int).GetSourceName());
-            Assert.AreEqual("int", typeof(int).GetSourceFullName());
+            Assert.AreEqual("int", typeof(int).GetTypeNameString());
+            Assert.AreEqual("int", typeof(int).GetTypeFullNameString());
 
-            Assert.AreEqual("string", typeof(string).GetSourceName());
-            Assert.AreEqual("string", typeof(string).GetSourceFullName());
+            Assert.AreEqual("string", typeof(string).GetTypeNameString());
+            Assert.AreEqual("string", typeof(string).GetTypeFullNameString());
 
-            Assert.AreEqual("int?", typeof(int?).GetSourceName());
-            Assert.AreEqual("int?", typeof(int?).GetSourceFullName());
+            Assert.AreEqual("int?", typeof(int?).GetTypeNameString());
+            Assert.AreEqual("int?", typeof(int?).GetTypeFullNameString());
         }
 
         [TestMethod]
         public void Test2()
         {
-            Assert.AreEqual("int[]", typeof(int[]).GetSourceName());
-            Assert.AreEqual("int[]", typeof(int[]).GetSourceFullName());
+            Assert.AreEqual("int[]", typeof(int[]).GetTypeNameString());
+            Assert.AreEqual("int[]", typeof(int[]).GetTypeFullNameString());
 
-            Assert.AreEqual("int[,]", typeof(int[,]).GetSourceName());
-            Assert.AreEqual("int[,]", typeof(int[,]).GetSourceFullName());
+            Assert.AreEqual("int[,]", typeof(int[,]).GetTypeFullNameString());
+            Assert.AreEqual("int[,]", typeof(int[,]).GetTypeFullNameString());
 
-            Assert.AreEqual("uint[][,]", typeof(uint[][,]).GetSourceName());
-            Assert.AreEqual("uint[,][]", typeof(uint[,][]).GetSourceName());
+            Assert.AreEqual("uint[][,]", typeof(uint[][,]).GetTypeNameString());
+            Assert.AreEqual("uint[,][]", typeof(uint[,][]).GetTypeNameString());
 
-            Assert.AreEqual("decimal[][]", typeof(decimal[][]).GetSourceFullName());
-            Assert.AreEqual("float[][]", typeof(float[][]).GetSourceName());
+            Assert.AreEqual("decimal[][]", typeof(decimal[][]).GetTypeNameString());
+            Assert.AreEqual("float[][]", typeof(float[][]).GetTypeNameString());
 
-            Assert.AreEqual("decimal[][]", typeof(decimal[][]).GetSourceFullName());
-            Assert.AreEqual("float[][]", typeof(float[][]).GetSourceName());
+            Assert.AreEqual("decimal[][]", typeof(decimal[][]).GetTypeNameString());
+            Assert.AreEqual("float[][]", typeof(float[][]).GetTypeNameString());
 
-            Assert.AreEqual("char?[][][,]", typeof(char?[][][,]).GetSourceFullName());
+            Assert.AreEqual("char?[][][,]", typeof(char?[][][,]).GetTypeFullNameString());
         }
 
         [TestMethod]
         public void Test3()
         {
-            Assert.AreEqual("IDisposable", typeof(IDisposable).GetSourceName());
-            Assert.AreEqual("System.IDisposable", typeof(IDisposable).GetSourceFullName());
+            Assert.AreEqual("IDisposable", typeof(IDisposable).GetTypeNameString());
+            Assert.AreEqual("System.IDisposable", typeof(IDisposable).GetTypeFullNameString());
 
-            Assert.AreEqual("DateTime", typeof(DateTime).GetSourceName());
-            Assert.AreEqual("System.DateTime", typeof(DateTime).GetSourceFullName());
+            Assert.AreEqual("DateTime", typeof(DateTime).GetTypeNameString());
+            Assert.AreEqual("System.DateTime", typeof(DateTime).GetTypeFullNameString());
 
-            Assert.AreEqual("DateTime?", typeof(DateTime?).GetSourceName());
-            Assert.AreEqual("System.DateTime?", typeof(DateTime?).GetSourceFullName());
+            Assert.AreEqual("DateTime?", typeof(DateTime?).GetTypeNameString());
+            Assert.AreEqual("System.DateTime?", typeof(DateTime?).GetTypeFullNameString());
 
-            Assert.AreEqual("DateTime?[]", typeof(DateTime?[]).GetSourceName());
-            Assert.AreEqual("System.DateTime?[]", typeof(DateTime?[]).GetSourceFullName());
+            Assert.AreEqual("DateTime?[]", typeof(DateTime?[]).GetTypeNameString());
+            Assert.AreEqual("System.DateTime?[]", typeof(DateTime?[]).GetTypeFullNameString());
         }
 
         [TestMethod]
         public void Test4()
         {
-            Assert.AreEqual("List<T>", typeof(List<>).GetSourceName());
-            Assert.AreEqual("System.Collections.Generic.List<T>", typeof(List<>).GetSourceFullName());
+            Assert.AreEqual("List<T>", typeof(List<>).GetTypeNameString());
+            Assert.AreEqual("System.Collections.Generic.List<T>", typeof(List<>).GetTypeFullNameString());
 
-            Assert.AreEqual("List<int>", typeof(List<int>).GetSourceName());
-            Assert.AreEqual("System.Collections.Generic.List<int>", typeof(List<int>).GetSourceFullName());
+            Assert.AreEqual("List<int>", typeof(List<int>).GetTypeNameString());
+            Assert.AreEqual("System.Collections.Generic.List<int>", typeof(List<int>).GetTypeFullNameString());
 
-            Assert.AreEqual("List<DateTime>", typeof(List<DateTime>).GetSourceName());
-            Assert.AreEqual("System.Collections.Generic.List<System.DateTime>", typeof(List<DateTime>).GetSourceFullName());
+            Assert.AreEqual("List<DateTime>", typeof(List<DateTime>).GetTypeNameString());
+            Assert.AreEqual("System.Collections.Generic.List<System.DateTime>", typeof(List<DateTime>).GetTypeFullNameString());
 
-            Assert.AreEqual("List<List<int>>", typeof(List<List<int>>).GetSourceName());
-            Assert.AreEqual("System.Collections.Generic.List<System.Collections.Generic.List<int>>", typeof(List<List<int>>).GetSourceFullName());
+            Assert.AreEqual("List<List<int>>", typeof(List<List<int>>).GetTypeNameString());
+            Assert.AreEqual("System.Collections.Generic.List<System.Collections.Generic.List<int>>", typeof(List<List<int>>).GetTypeFullNameString());
         }
 
         [TestMethod]
         public void Test5()
         {
-            Assert.AreEqual("Dictionary<TKey,TValue>", typeof(Dictionary<,>).GetSourceName());
-            Assert.AreEqual("System.Collections.Generic.Dictionary<TKey,TValue>", typeof(Dictionary<,>).GetSourceFullName());
+            Assert.AreEqual("Dictionary<TKey,TValue>", typeof(Dictionary<,>).GetTypeNameString());
+            Assert.AreEqual("System.Collections.Generic.Dictionary<TKey,TValue>", typeof(Dictionary<,>).GetTypeFullNameString());
 
-            Assert.AreEqual("Dictionary<int,string>", typeof(Dictionary<int, string>).GetSourceName());
-            Assert.AreEqual("System.Collections.Generic.Dictionary<int,string>", typeof(Dictionary<int, string>).GetSourceFullName());
+            Assert.AreEqual("Dictionary<int,string>", typeof(Dictionary<int, string>).GetTypeNameString());
+            Assert.AreEqual("System.Collections.Generic.Dictionary<int,string>", typeof(Dictionary<int, string>).GetTypeFullNameString());
 
-            Assert.AreEqual("Dictionary<byte,DateTime>", typeof(Dictionary<byte, DateTime>).GetSourceName());
-            Assert.AreEqual("System.Collections.Generic.Dictionary<byte,System.DateTime>", typeof(Dictionary<byte, DateTime>).GetSourceFullName());
+            Assert.AreEqual("Dictionary<byte,DateTime>", typeof(Dictionary<byte, DateTime>).GetTypeNameString());
+            Assert.AreEqual("System.Collections.Generic.Dictionary<byte,System.DateTime>", typeof(Dictionary<byte, DateTime>).GetTypeFullNameString());
 
-            Assert.AreEqual("Dictionary<List<int>,Dictionary<List<string>,DateTime>>", typeof(Dictionary<List<int>, Dictionary<List<string>, DateTime>>).GetSourceName());
-            Assert.AreEqual("System.Collections.Generic.Dictionary<System.Collections.Generic.List<int>,System.Collections.Generic.Dictionary<System.Collections.Generic.List<string>,System.DateTime>>", typeof(Dictionary<List<int>, Dictionary<List<string>, DateTime>>).GetSourceFullName());
+            Assert.AreEqual("Dictionary<List<int>,Dictionary<List<string>,DateTime>>", typeof(Dictionary<List<int>, Dictionary<List<string>, DateTime>>).GetTypeNameString());
+            Assert.AreEqual("System.Collections.Generic.Dictionary<System.Collections.Generic.List<int>,System.Collections.Generic.Dictionary<System.Collections.Generic.List<string>,System.DateTime>>", typeof(Dictionary<List<int>, Dictionary<List<string>, DateTime>>).GetTypeFullNameString());
         }
 
         [TestMethod]
         public void Test7()
         {
-            Assert.AreEqual("TestA", typeof(TestA).GetSourceName());
-            Assert.AreEqual("TestA", typeof(TestA).GetSourceFullName());
+            Assert.AreEqual("TestA", typeof(TestA).GetTypeNameString());
+            Assert.AreEqual("TestA", typeof(TestA).GetTypeFullNameString());
 
-            Assert.AreEqual("TestA.TestB", typeof(TestA.TestB).GetSourceName());
-            Assert.AreEqual("TestA.TestB", typeof(TestA.TestB).GetSourceFullName());
+            Assert.AreEqual("TestA.TestB", typeof(TestA.TestB).GetTypeNameString());
+            Assert.AreEqual("TestA.TestB", typeof(TestA.TestB).GetTypeFullNameString());
 
-            Assert.AreEqual("TestA.TestB", typeof(NS.TestA.TestB).GetSourceName());
-            Assert.AreEqual("NS.TestA.TestB", typeof(NS.TestA.TestB).GetSourceFullName());
+            Assert.AreEqual("TestA.TestB", typeof(NS.TestA.TestB).GetTypeNameString());
+            Assert.AreEqual("NS.TestA.TestB", typeof(NS.TestA.TestB).GetTypeFullNameString());
 
-            Assert.AreEqual("Dictionary<TestA,NS.TestA>", typeof(Dictionary<TestA, NS.TestA>).GetSourceName());
-            Assert.AreEqual("System.Collections.Generic.Dictionary<TestA,NS.TestA>", typeof(Dictionary<TestA, NS.TestA>).GetSourceFullName());
+            Assert.AreEqual("Dictionary<TestA,NS.TestA>", typeof(Dictionary<TestA, NS.TestA>).GetTypeNameString());
+            Assert.AreEqual("System.Collections.Generic.Dictionary<TestA,NS.TestA>", typeof(Dictionary<TestA, NS.TestA>).GetTypeFullNameString());
 
-            Assert.AreEqual("Dictionary<NS.TestA,MS.TestA>", typeof(Dictionary<NS.TestA, MS.TestA>).GetSourceName());
+            Assert.AreEqual("Dictionary<NS.TestA,MS.TestA>", typeof(Dictionary<NS.TestA, MS.TestA>).GetTypeNameString());
         }
 
     }

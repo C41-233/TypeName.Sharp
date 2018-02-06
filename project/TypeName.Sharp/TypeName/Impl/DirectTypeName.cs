@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
 using TypeName.Container;
-using TypeName.Util;
+using TypeName.Filter;
 
 namespace TypeName
 {
@@ -26,12 +25,16 @@ namespace TypeName
             Name = type.Name;
         }
 
-        internal override void SetNoNamespaceIfPossible(NameContext context)
+        public override void FilterNamespace(NamespaceFilter filter)
         {
-            Namespace.Clear();
-            foreach (var name in BaseNames.Cast<TypeName>())
+            filter.Add(this);
+        }
+
+        public override void ClearNamespace(NamespaceFilter filter)
+        {
+            if (filter.NeedClear(this))
             {
-                name.SetNoNamespaceIfPossible(context);
+                Namespace.Clear();
             }
         }
     }

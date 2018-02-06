@@ -17,8 +17,8 @@ namespace DocBuilder
             public string Name => type.Name;
             public string FullName => type.FullName;
             public string String => type.ToString();
-            public string SourceName => type.GetSourceName();
-            public string SourceFullName => type.GetSourceFullName();
+            public string SourceName => type.GetTypeNameString();
+            public string SourceFullName => type.GetTypeFullNameString();
 
             private readonly Type type;
 

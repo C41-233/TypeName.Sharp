@@ -12,15 +12,15 @@ namespace TypeNameTest
 
         private static void AssertMethod(string expect, string expectFull, Type type, string method)
         { 
-            Assert.AreEqual(expect, type.GetMethod(method).GetParameters()[0].ParameterType.GetSourceName());
-            Assert.AreEqual(expectFull, type.GetMethod(method).GetParameters()[0].ParameterType.GetSourceFullName());
+            Assert.AreEqual(expect, type.GetMethod(method).GetParameters()[0].ParameterType.GetTypeNameString());
+            Assert.AreEqual(expectFull, type.GetMethod(method).GetParameters()[0].ParameterType.GetTypeFullNameString());
         }
 
         [TestMethod]
         public void Test1()
         {
-            Assert.AreEqual("T", typeof(List<>).GetGenericArguments()[0].GetSourceName());
-            Assert.AreEqual("T", typeof(List<>).GetGenericArguments()[0].GetSourceFullName());
+            Assert.AreEqual("T", typeof(List<>).GetGenericArguments()[0].GetTypeNameString());
+            Assert.AreEqual("T", typeof(List<>).GetGenericArguments()[0].GetTypeFullNameString());
         }
 
         [TestMethod]

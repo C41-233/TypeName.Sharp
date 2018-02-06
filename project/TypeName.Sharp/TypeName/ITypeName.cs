@@ -1,5 +1,6 @@
 ﻿using System;
 using TypeName.Container;
+using TypeName.Filter;
 
 namespace TypeName
 {
@@ -19,6 +20,10 @@ namespace TypeName
         bool Nullable { get; }
 
         ArrayRankList ArrayRanks { get; }
+
+        void FilterNamespace(NamespaceFilter filter);
+
+        void ClearNamespace(NamespaceFilter filter);
 
     }
 }

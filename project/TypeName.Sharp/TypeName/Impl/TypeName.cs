@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 using TypeName.Container;
-using TypeName.Util;
+using TypeName.Filter;
 
 namespace TypeName
 {
@@ -54,8 +54,25 @@ namespace TypeName
             return sb.ToString();
         }
 
-        internal virtual void SetNoNamespaceIfPossible(NameContext context)
+        public virtual void FilterNamespace(NamespaceFilter filter)
         {
+        }
+
+        public virtual void ClearNamespace(NamespaceFilter filter)
+        {
+        }
+
+        internal NameIdentity NameIdentity
+        {
+            get
+            {
+                if (BaseNames.IsEmpty)
+                {
+                    return new NameIdentity(Name, Generics.Count);
+                }
+                var name = BaseNames[0];
+                return new NameIdentity(name.Name, name.Generics.Count);
+            }
         }
 
     }

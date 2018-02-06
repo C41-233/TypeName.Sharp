@@ -28,9 +28,18 @@ namespace TypeName
             var genericName = type.Name;
             var iQuota = genericName.LastIndexOf('`');
 
-            Name = genericName.Substring(0, iQuota);
+            int lenGeneric;
+            if (iQuota > 0)
+            {
+                Name = genericName.Substring(0, iQuota);
+                lenGeneric = int.Parse(genericName.Substring(iQuota + 1));
+            }
+            else
+            {
+                Name = genericName;
+                lenGeneric = 0;
+            }
 
-            var lenGeneric = int.Parse(genericName.Substring(iQuota + 1));
             for (int i = 0; i<lenGeneric; i++)
             {
                 Generics.Add(TypeNameFactory.Create(visitor.Next(), flags));
