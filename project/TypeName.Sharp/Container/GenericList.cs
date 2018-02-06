@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace TypeName.Container
@@ -23,7 +24,7 @@ namespace TypeName.Container
 
         public IEnumerator<ITypeName> GetEnumerator()
         {
-            return names.GetEnumerator();
+            return names.Cast<ITypeName>().GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()

@@ -3,7 +3,7 @@
 namespace TypeName.Container
 {
 
-    public interface INameList<out T> : IEnumerable<T>
+    public interface INameList<T> : IEnumerable<T>
     {
 
         T this[int index] { get; }
