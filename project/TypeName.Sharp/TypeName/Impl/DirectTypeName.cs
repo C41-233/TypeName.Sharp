@@ -2,6 +2,8 @@
 using TypeName.Container;
 using TypeName.Filter;
 
+// ReSharper disable HeuristicUnreachableCode
+// ReSharper disable ConditionIsAlwaysTrueOrFalse
 namespace TypeName
 {
     internal sealed class DirectTypeName : TypeName
@@ -32,7 +34,7 @@ namespace TypeName
 
         public override void ClearNamespace(NamespaceFilter filter)
         {
-            if (filter.NeedClear(this))
+            if (!filter.IsNeedFullName(this))
             {
                 Namespace.Clear();
             }

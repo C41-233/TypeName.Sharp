@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using TypeName.Container;
 using TypeName.Filter;
 
+// ReSharper disable ConditionIsAlwaysTrueOrFalse
+// ReSharper disable HeuristicUnreachableCode
 namespace TypeName
 {
     internal sealed class GenericTypeName : TypeName
@@ -70,7 +70,7 @@ namespace TypeName
 
         public override void ClearNamespace(NamespaceFilter filter)
         {
-            if (filter.NeedClear(this))
+            if (!filter.IsNeedFullName(this))
             {
                 Namespace.Clear();
             }

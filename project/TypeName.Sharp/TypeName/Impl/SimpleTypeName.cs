@@ -57,7 +57,7 @@ namespace TypeName
 
         public override void ClearNamespace(NamespaceFilter filter)
         {
-            if (filter.NeedClear(this))
+            if (!filter.IsNeedFullName(this))
             {
                 Namespace.Clear();
             }

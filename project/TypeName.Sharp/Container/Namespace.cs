@@ -8,48 +8,54 @@ namespace TypeName.Container
     public sealed class Namespace : INameList<string>
     {
 
+        private static readonly string[] EmptyArray = new string[0];
+
         internal static readonly Namespace Empty = new Namespace();
 
-        private string[] Tokens => tokens ?? (tokens = ns?.Split('.').ToArray() ?? new string[0]);
+        private string[] RuntimeTokens => IsFullName ? tokens : EmptyArray;
 
-        private string[] tokens;
-        private string ns;
+        private readonly string[] tokens;
+
+        public string FullName { get; }
+
+        public bool IsFullName { get; private set; }
 
         internal Namespace(string ns = null)
         {
-            this.ns = ns;
+            IsFullName = true;
+            FullName = ns ?? "";
+            tokens = ns?.Split('.') ?? EmptyArray;
         }
 
         public IEnumerator<string> GetEnumerator()
         {
-            return Tokens.Cast<string>().GetEnumerator();
+            return RuntimeTokens.Cast<string>().GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return Tokens.GetEnumerator();
+            return RuntimeTokens.GetEnumerator();
         }
 
-        public string this[int index] => Tokens[index];
+        public string this[int index] => RuntimeTokens[index];
 
-        public int Count => Tokens.Length;
+        public int Count => RuntimeTokens.Length;
 
         public bool IsEmpty => Count == 0;
 
         internal void Clear()
         {
-            ns = null;
-            tokens = new string[0];
+            IsFullName = false;
         }
 
         public override string ToString()
         {
-            return ns;
+            return IsFullName ? FullName : "";
         }
 
         internal void ToString(StringBuilder sb)
         {
-            sb.Append(ns);
+            sb.Append(ToString());
         }
 
     }

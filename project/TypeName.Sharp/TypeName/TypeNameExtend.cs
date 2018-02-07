@@ -9,9 +9,9 @@ namespace TypeName
         public static ITypeName GetTypeName(this Type type, NameFlag flags)
         {
             var name = TypeNameFactory.Create(type, flags);
-            var context = new NamespaceFilter();
-            name.FilterNamespace(context);
-            name.ClearNamespace(context);
+            var filter = new NamespaceFilter();
+            name.FilterNamespace(filter);
+            name.ClearNamespace(filter);
             return name;
         }
 

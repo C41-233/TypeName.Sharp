@@ -35,13 +35,13 @@ namespace TypeName.Filter
             TypeNameContext context;
             if (!identityToContext.TryGetValue(identity, out context))
             {
-                context = new TypeNameContext(name.Namespace.ToString());
+                context = new TypeNameContext(name.Namespace.FullName);
                 context.Names.Add(name);
                 identityToContext.Add(identity, context);
                 return;
             }
 
-            if (context.Namespace == name.Namespace.ToString())
+            if (context.Namespace == name.Namespace.FullName)
             {
                 context.Names.Add(name);
                 return;
@@ -53,9 +53,9 @@ namespace TypeName.Filter
             identityToContext.Remove(identity);
         }
 
-        internal bool NeedClear(TypeName name)
+        internal bool IsNeedFullName(TypeName name)
         {
-            return !badNames.Contains(name);
+            return badNames.Contains(name);
         }
 
     }
