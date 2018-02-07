@@ -10,7 +10,7 @@ namespace TypeName
         public override BaseNameList BaseNames => ComponentType.BaseNames;
         public override string Name => ComponentType.Name;
         public override GenericList Generics => ComponentType.Generics;
-        public override bool Nullable => ComponentType.Nullable;
+        public override NullableName Nullable => ComponentType.Nullable;
 
         public override ArrayRankList ArrayRanks { get; }
 

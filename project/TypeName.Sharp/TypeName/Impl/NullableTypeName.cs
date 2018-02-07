@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using TypeName.Container;
 using TypeName.Filter;
 
@@ -11,7 +10,7 @@ namespace TypeName
         public override BaseNameList BaseNames { get; }
         public override string Name { get; }
         public override GenericList Generics { get; }
-        public override bool Nullable { get; }
+        public override NullableName Nullable { get; }
 
         internal NullableTypeName(Type type, NameFlag flags) : base(type)
         {
@@ -24,7 +23,7 @@ namespace TypeName
                 BaseNames = BaseNameList.Empty;
                 Name = nameof(Nullable);
                 Generics = new GenericList {componentType};
-                Nullable = false;
+                Nullable = NullableName.False;
             }
             else
             {
@@ -32,7 +31,7 @@ namespace TypeName
                 BaseNames = componentType.BaseNames;
                 Name = componentType.Name;
                 Generics = GenericList.Empty;
-                Nullable = true;
+                Nullable = NullableName.True;
             }
         }
 

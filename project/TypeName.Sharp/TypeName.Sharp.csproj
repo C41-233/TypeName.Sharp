@@ -39,6 +39,7 @@
     <Compile Include="Container\ArrayRankList.cs" />
     <Compile Include="Container\BaseNameList.cs" />
     <Compile Include="Container\GenericList.cs" />
+    <Compile Include="Container\NullableName.cs" />
     <Compile Include="MethodName\MethodNameExtend.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Container\INameList.cs" />

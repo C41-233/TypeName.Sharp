@@ -12,7 +12,7 @@ namespace TypeName
         public virtual BaseNameList BaseNames => BaseNameList.Empty;
         public virtual string Name => Type.Name;
         public virtual GenericList Generics => GenericList.Empty;
-        public virtual bool Nullable => false;
+        public virtual NullableName Nullable => NullableName.False;
         public virtual ArrayRankList ArrayRanks => ArrayRankList.Empty;
 
         protected TypeName(Type type)
@@ -37,10 +37,7 @@ namespace TypeName
             {
                 Generics.ToString(sb);
             }
-            if (Nullable)
-            {
-                sb.Append('?');
-            }
+            sb.Append(Nullable);
             if (!ArrayRanks.IsEmpty)
             {
                 ArrayRanks.ToString(sb);

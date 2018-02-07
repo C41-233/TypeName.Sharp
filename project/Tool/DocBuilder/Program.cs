@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
-// ReSharper disable ConvertNullableToShortForm
 
+// ReSharper disable ConvertNullableToShortForm
 // ReSharper disable BuiltInTypeReferenceStyle
 namespace DocBuilder
 {

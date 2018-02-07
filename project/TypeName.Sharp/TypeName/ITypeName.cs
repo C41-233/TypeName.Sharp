@@ -17,7 +17,7 @@ namespace TypeName
 
         GenericList Generics { get; }
 
-        bool Nullable { get; }
+        NullableName Nullable { get; }
 
         ArrayRankList ArrayRanks { get; }
 
