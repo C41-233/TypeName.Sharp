@@ -13,26 +13,39 @@ Framework提供的System.Type有三个获取字符串名称的属性/函数，�
 TypeName为Type、Method、Property、Field、Parameter添加了一些扩展函数来处理所有情况，使得一个类型能够按照语法形式输出。
 
 ### Type
-为System.Type添加了扩展方法GetSouceName和GetSourceFullName，GetSourceName用于获取不带namespace的类型语法名称（SourceName），GetSourceFullName用于获取带namespace的类型语法名称（SourceFullName）。其规则为：  
+类型的TypeName的定义如下：  
+```
+{Namespace}.{BaseNames}.{Name}{Generics}{Nullable}{ArrayRanks}`
+```
+
+其中Name是必须的，而其他部分在不同情况下可以省略。举例来说：  
+类型`System.Collections.Generic.List<System.DateTime>[][,]`,System.Collections.Generic是Namepsace，List是Name，<System.DateTime>是Generics，[][,]是ArrayRanks。
+
+TypeName为System.Type添加了扩展方法GetTypeNameString和GetTypeFullNameString，GetTypeName用于获取不带namespace的类型语法名称（TypeName），GetTypeFullNameString用于获取带namespace的类型语法名称（TypeFullName）。其默认规则为：  
 1. 如果类型是一个基本类型，那么总是返回其简化形式。基本类型指的是void、byte、char、short、ushort、int、uint、long、ulong、float、double、decimal、string。
 2. 如果类型是一个可空类型，那么返回去其?形式。例如，`int?`、`DateTime?`。
 3. 如果类型是一个泛型定义，那么返回其类型名称及其泛型参数的定义名称。例如，`List<T>`。
 4. 如果类型是一个泛型类型，那么返回其类型名称及其泛型参数的类型名称。例如，`List<int>`。
 5. SourceName的每一个部分都是不带namespace的，SourceFullName返回的每一个部分都是带namespace。例如，`List<DateTime>`是SourceName，那么`System.Collections.Generic.List<System.DateTime>`是SourceFullName。
-6. SourceName中返回的任意两个部分是相同名称的不同类型，那么它们将以SourceFullName的形式返回。例如，`Dictionary<NS1.A,NS2.A>`的SourceName为`Dictionary<NS1.A,NS2.A>`，其SourceFullName为`System.Collections.Generic.Dictionary<NS1.A,NS2.B>`。
+6. SourceName中返回的任意两个部分是相同名称的不同类型，那么它们将以TypeFullName的形式返回。例如，`Dictionary<NS1.A,NS2.A>`的TypeName为`Dictionary<NS1.A,NS2.A>`，其TypeFullName为`System.Collections.Generic.Dictionary<NS1.A,NS2.B>`。
 
 ```C#
 using TypeName;
 
 //List<T>
-Console.WriteLine(typeof(List<>).GetSourceName());
+Console.WriteLine(typeof(List<>).GetTypeNameString());
+
+//Dictionary<,>
+Console.WriteLine(typeof(Dictionary<,>).GetTypeNameString(TypeNameFlag.OmitGenericParameter));
 
 //List<int>
-Console.WriteLine(typeof(List<int>).GetSourceName());
+Console.WriteLine(typeof(List<int>).GetTypeNameString());
 
 //System.Collections.Generic.List<System.DateTime?>
-Console.WriteLine(typeof(List<DateTime?>).GetSourceFullName());
+Console.WriteLine(typeof(List<DateTime?>).GetTypeFullNameString());
 ```
+
+当然如果想要更精细的格式，通过GetTypeName和GetTypeFullName返回INameType，其中定义了类型的各个部分。
 
 ### Method
 为System.MethodInfo添加了扩展方法GetSourceName和GetSourceFullName，分别用于输出一个方法不带namespace的语法定义名称和带namespace的语法定义名称，格式为`返回类型+函数名称+泛型参数定义+参数表`。SourceName和SourceFullName的规则同Type一致，它们同时作用于返回类型、泛型参数类型和参数类型。
