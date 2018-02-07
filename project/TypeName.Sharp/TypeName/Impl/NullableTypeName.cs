@@ -12,12 +12,12 @@ namespace TypeName
         public override GenericList Generics { get; }
         public override NullableName Nullable { get; }
 
-        internal NullableTypeName(Type type, NameFlag flags) : base(type)
+        internal NullableTypeName(Type type, TypeNameFlag flags) : base(type)
         {
             var component = type.GetGenericArguments()[0];
             var componentType = TypeNameFactory.Create(component, flags);
 
-            if (flags.Has(NameFlag.FullNullable))
+            if (flags.Has(TypeNameFlag.FullNullable))
             {
                 Namespace = new Namespace(type.Namespace);
                 BaseNames = BaseNameList.Empty;

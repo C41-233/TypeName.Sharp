@@ -7,9 +7,16 @@ namespace TypeName
 
         public override string Name { get; }
 
-        internal GenericParameterTypeName(Type type) : base(type)
+        internal GenericParameterTypeName(Type type, TypeNameFlag flags) : base(type)
         {
-            Name = type.Name;
+            if (flags.Has(TypeNameFlag.OmitGenericParameter))
+            {
+                Name = "";
+            }
+            else
+            {
+                Name = type.Name;
+            }
         }
     }
 }

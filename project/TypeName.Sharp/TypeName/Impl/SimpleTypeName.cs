@@ -36,9 +36,9 @@ namespace TypeName
         public override Namespace Namespace { get; }
         public override string Name { get; }
 
-        internal SimpleTypeName(Type type, NameFlag flags) : base(type)
+        internal SimpleTypeName(Type type, TypeNameFlag flags) : base(type)
         {
-            if (flags.Has(NameFlag.FullPrimitive))
+            if (flags.Has(TypeNameFlag.FullPrimitive))
             {
                 Namespace = new Namespace(type.Namespace);
                 Name = type.Name;

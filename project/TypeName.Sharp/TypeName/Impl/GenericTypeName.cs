@@ -14,7 +14,7 @@ namespace TypeName
         public override string Name { get; }
         public override GenericList Generics { get; }
 
-        public GenericTypeName(Type type, NameFlag flags) : base(type)
+        public GenericTypeName(Type type, TypeNameFlag flags) : base(type)
         {
             Namespace = new Namespace(type.Namespace);
             BaseNames = new BaseNameList();

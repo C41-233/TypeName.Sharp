@@ -16,7 +16,7 @@ namespace TypeName
 
         private readonly TypeName ComponentType;
 
-        internal ArrayTypeName(Type type, NameFlag flags) : base(type)
+        internal ArrayTypeName(Type type, TypeNameFlag flags) : base(type)
         {
             ArrayRanks = new ArrayRankList();
             while (type.IsArray)

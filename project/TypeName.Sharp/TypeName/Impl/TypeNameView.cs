@@ -20,7 +20,7 @@ namespace TypeName
             Generics = GenericList.Empty;
         }
 
-        internal TypeNameView(Type type, GenericVisitor visitor, NameFlag flags)
+        internal TypeNameView(Type type, GenericVisitor visitor, TypeNameFlag flags)
         {
             Type = type;
             Generics = new GenericList();

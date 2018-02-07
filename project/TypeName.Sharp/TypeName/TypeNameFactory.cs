@@ -5,7 +5,7 @@ namespace TypeName
     internal static class TypeNameFactory
     {
 
-        internal static TypeName Create(Type type, NameFlag flags)
+        internal static TypeName Create(Type type, TypeNameFlag flags)
         {
             if (SimpleTypeName.IsSimpleType(type))
             {
@@ -17,7 +17,7 @@ namespace TypeName
             }
             if (type.IsGenericParameter)
             {
-                return new GenericParameterTypeName(type);
+                return new GenericParameterTypeName(type, flags);
             }
             if (type.IsGenericType)
             {

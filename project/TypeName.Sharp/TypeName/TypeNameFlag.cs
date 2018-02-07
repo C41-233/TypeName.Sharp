@@ -3,18 +3,19 @@
 namespace TypeName
 {
     [Flags]
-    public enum NameFlag
+    public enum TypeNameFlag
     {
         
         Default = 0,
         FullPrimitive = 0x01,
         FullNullable = 0x02,
+        OmitGenericParameter = 0x04,
 
     }
 
-    public static class NameFlagExtend
+    public static class TypeNameFlagExtend
     {
-        public static bool Has(this NameFlag flags, NameFlag flag)
+        public static bool Has(this TypeNameFlag flags, TypeNameFlag flag)
         {
             return (flags & flag) != 0;
         }
