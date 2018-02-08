@@ -10,7 +10,7 @@ namespace TypeName
         public override BaseNameList BaseNames { get; }
         public override string Name { get; }
         public override GenericList Generics { get; }
-        public override NullableName Nullable { get; }
+        public override Sign Sign { get; }
 
         internal NullableTypeName(Type type, TypeNameFlag flags) : base(type)
         {
@@ -21,9 +21,9 @@ namespace TypeName
             {
                 Namespace = new Namespace(type.Namespace);
                 BaseNames = BaseNameList.Empty;
-                Name = nameof(Nullable);
+                Name = nameof(Sign);
                 Generics = new GenericList {componentType};
-                Nullable = NullableName.False;
+                Sign = Sign.Empty;
             }
             else
             {
@@ -31,7 +31,7 @@ namespace TypeName
                 BaseNames = componentType.BaseNames;
                 Name = componentType.Name;
                 Generics = GenericList.Empty;
-                Nullable = NullableName.True;
+                Sign = Sign.Nullable;
             }
         }
 

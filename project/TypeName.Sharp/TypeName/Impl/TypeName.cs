@@ -12,7 +12,7 @@ namespace TypeName
         public virtual BaseNameList BaseNames => BaseNameList.Empty;
         public virtual string Name => Type.Name;
         public virtual GenericList Generics => GenericList.Empty;
-        public virtual NullableName Nullable => NullableName.False;
+        public virtual Sign Sign => Sign.Empty;
         public virtual ArrayRankList ArrayRanks => ArrayRankList.Empty;
 
         protected TypeName(Type type)
@@ -37,7 +37,7 @@ namespace TypeName
             {
                 Generics.ToString(sb);
             }
-            sb.Append(Nullable);
+            sb.Append(Sign);
             if (!ArrayRanks.IsEmpty)
             {
                 ArrayRanks.ToString(sb);
@@ -51,13 +51,9 @@ namespace TypeName
             return sb.ToString();
         }
 
-        public virtual void FilterNamespace(NamespaceFilter filter)
-        {
-        }
+        public abstract void FilterNamespace(NamespaceFilter filter);
 
-        public virtual void ClearNamespace(NamespaceFilter filter)
-        {
-        }
+        public abstract void ClearNamespace(NamespaceFilter filter);
 
         internal NameIdentity NameIdentity
         {

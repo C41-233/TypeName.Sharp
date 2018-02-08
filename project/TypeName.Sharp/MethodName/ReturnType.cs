@@ -1,0 +1,6 @@
+﻿namespace TypeName
+{
+    class ReturnType
+    {
+    }
+}

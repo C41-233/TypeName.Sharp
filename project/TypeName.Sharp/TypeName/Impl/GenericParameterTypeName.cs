@@ -1,4 +1,5 @@
 ﻿using System;
+using TypeName.Filter;
 
 namespace TypeName
 {
@@ -17,6 +18,14 @@ namespace TypeName
             {
                 Name = type.Name;
             }
+        }
+
+        public override void FilterNamespace(NamespaceFilter filter)
+        {
+        }
+
+        public override void ClearNamespace(NamespaceFilter filter)
+        {
         }
     }
 }

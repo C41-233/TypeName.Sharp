@@ -45,7 +45,7 @@ Console.WriteLine(typeof(List<int>).GetTypeNameString());
 Console.WriteLine(typeof(List<DateTime?>).GetTypeFullNameString());
 ```
 
-当然如果想要更精细的格式控制，可以通过GetTypeName和GetTypeFullName返回INameType，其中定义了类型的各个部分。
+如果想要更精细的格式控制，可以通过GetTypeName和GetTypeFullName返回INameType，其中定义了类型的各个部分。
 
 ### Method
 为System.MethodInfo添加了扩展方法GetDefinitionName和GetDefinitionFullName，分别用于输出一个方法不带namespace的语法定义名称和带namespace的语法定义名称，格式为`返回类型+函数名称+泛型参数定义+参数表`。DefinitionName和DefinitionFullName的规则同Type一致，它们同时作用于返回类型、泛型参数类型和参数类型。
@@ -53,7 +53,7 @@ Console.WriteLine(typeof(List<DateTime?>).GetTypeFullNameString());
 ```C#
 class TestA<T>
 {
-	public static string Func<K>(Dictionary<T, K> dic, List<DateTime> list);
+    public static string Func<K>(Dictionary<T, K> dic, List<DateTime> list);
 }
 
 using TypeName;

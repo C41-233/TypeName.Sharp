@@ -19,6 +19,10 @@ namespace TypeName
             {
                 return new GenericParameterTypeName(type, flags);
             }
+            if (type.IsPointer)
+            {
+                return new PointerTypeName(type, flags);
+            }
             if (type.IsGenericType)
             {
                 if (type.GetGenericTypeDefinition() == typeof(Nullable<>))

@@ -4,27 +4,19 @@ using TypeName.Filter;
 
 namespace TypeName
 {
-    internal sealed class ArrayTypeName : TypeName
+    internal sealed class PointerTypeName : TypeName
     {
+
         public override Namespace Namespace => ComponentType.Namespace;
         public override BaseNameList BaseNames => ComponentType.BaseNames;
         public override string Name => ComponentType.Name;
         public override GenericList Generics => ComponentType.Generics;
-        public override Sign Sign => ComponentType.Sign;
-
-        public override ArrayRankList ArrayRanks { get; }
-
+        public override Sign Sign => Sign.Pointer;
         private readonly TypeName ComponentType;
 
-        internal ArrayTypeName(Type type, TypeNameFlag flags) : base(type)
+        internal PointerTypeName(Type type, TypeNameFlag flags) : base(type)
         {
-            ArrayRanks = new ArrayRankList();
-            while (type.IsArray)
-            {
-                ArrayRanks.Add(type.GetArrayRank());
-                type = type.GetElementType();
-            }
-            ComponentType = TypeNameFactory.Create(type, flags);
+            ComponentType = TypeNameFactory.Create(type.GetElementType(), flags);
         }
 
         public override void FilterNamespace(NamespaceFilter filter)
@@ -34,7 +26,11 @@ namespace TypeName
 
         public override void ClearNamespace(NamespaceFilter filter)
         {
-            ComponentType.ClearNamespace(filter);
+            if (!filter.IsNeedFullName(this))
+            {
+                ComponentType.ClearNamespace(filter);
+            }
         }
+
     }
 }

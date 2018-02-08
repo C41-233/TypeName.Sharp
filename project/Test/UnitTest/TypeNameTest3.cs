@@ -29,6 +29,7 @@ namespace TypeNameTest
             AssertMethod("List<T>", "System.Collections.Generic.List<T>", typeof(TestA), "Func1");
             AssertMethod("Dictionary<int,T>", "System.Collections.Generic.Dictionary<int,T>", typeof(TestA), "Func2");
             AssertMethod("List<K>", "System.Collections.Generic.List<K>", typeof(TestA.TestC<>), "Func3");
+            AssertMethod("int*", "int*", typeof(TestA), "Func5");
         }
 
 
