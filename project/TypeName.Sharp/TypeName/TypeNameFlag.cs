@@ -10,6 +10,7 @@ namespace TypeName
         FullPrimitive = 0x01,
         FullNullable = 0x02,
         OmitGenericParameter = 0x04,
+        ExplicitRef = 0x08,
 
     }
 

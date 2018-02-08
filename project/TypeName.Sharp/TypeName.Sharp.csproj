@@ -54,6 +54,7 @@
     <Compile Include="TypeName\GenericVisitor.cs" />
     <Compile Include="TypeName\Impl\NullableTypeName.cs" />
     <Compile Include="TypeName\Impl\PointerTypeName.cs" />
+    <Compile Include="TypeName\Impl\RefTypeName.cs" />
     <Compile Include="TypeName\ITypeName.cs" />
     <Compile Include="TypeName\ITypeNameView.cs" />
     <Compile Include="TypeName\Impl\SimpleTypeName.cs" />

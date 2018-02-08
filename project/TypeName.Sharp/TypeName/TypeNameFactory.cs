@@ -23,6 +23,10 @@ namespace TypeName
             {
                 return new PointerTypeName(type, flags);
             }
+            if (type.IsByRef)
+            {
+                return new RefTypeName(type, flags);
+            }
             if (type.IsGenericType)
             {
                 if (type.GetGenericTypeDefinition() == typeof(Nullable<>))

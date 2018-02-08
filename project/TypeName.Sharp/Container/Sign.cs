@@ -10,6 +10,7 @@ namespace TypeName.Container
         internal static readonly Sign Empty = new Sign();
         internal static readonly Sign Nullable = new Sign("?");
         internal static readonly Sign Pointer = new Sign("*");
+        internal static readonly Sign Ref = new Sign("&");
 
         private readonly string sign;
 
