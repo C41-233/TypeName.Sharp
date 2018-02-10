@@ -1,5 +1,5 @@
 # TypeName
-C#反射字符串输出
+C#反射类型的字符串格式化输出
 
 有时候我们想输出某一个类型的符合C#语法的字符串，例如一个根据接口自动生成实现类的代码生成器，通过反射获取System.MethodInfo后，需要输出其对应的C#函数定义字符串，根据情况我们可以自己选择名称中是否需要包含namespace。
 
@@ -15,16 +15,29 @@ TypeName为Type、Method、Property、Field、Parameter添加了一些扩展函�
 ### Type
 类型的TypeName定义如下：  
 ```
-{Namespace}.{BaseNames}.{Name}{Generics}{Nullable}{ArrayRanks}
+{Namespace}.{BaseNames}.{Name}{Generics}{Sign}{ArrayRanks}
 ```
 
-其中Name是必须的，而其他部分在不同情况下可以省略。举例来说：  
-类型`System.Collections.Generic.List<System.DateTime>[][,]`，其中System.Collections.Generic是Namepsace，List是Name，<System.DateTime>是Generics，[][,]是ArrayRanks。
+其中Name是必须的，而其他部分在不同情况下可以省略。举例来说，类型`System.Collections.Generic.List<System.DateTime?>[][,]`可以被拆分为：  
+1. Namepsace：System.Collections.Generic
+2. BaseNames：无
+3. Name：List
+4. Generics：<System.DateTime?>
+5. Sign：无
+6. ArrayRanks：[][,]
 
-TypeName为System.Type添加了扩展方法GetTypeNameString和GetTypeFullNameString，GetTypeName用于获取不带namespace的类型语法名称（TypeName），GetTypeFullNameString用于获取带namespace的类型语法名称（TypeFullName）。其默认规则为：  
-1. 如果类型是一个基本类型，那么总是返回其简化形式。基本类型指的是void、byte、char、short、ushort、int、uint、long、ulong、float、double、decimal、string。
-2. 如果类型是一个可空类型，那么返回去其?形式。例如，`int?`、`DateTime?`。
-3. 如果类型是一个泛型定义，那么返回其类型名称及其泛型参数的定义名称。例如，`List<T>`。
+Generics是一个TypeName的列表，因此对于类型System.DateTime?来说，还可以继续拆分为：
+1. Namespace：System
+2. BaseNames：无
+3. Name：DateTime
+4. Generics：无
+5. Sign：?
+6. ArrayRanks：无
+
+TypeName为System.Type添加了扩展方法GetTypeNameString和GetTypeFullNameString，GetTypeName用于获取不带namespace的类型语法名称（TypeName），GetTypeFullNameString用于获取带namespace的类型语法名称（TypeFullName）。其默认规则（TypeNameFlag.Default）为：  
+1. 如果类型是一个基本类型，那么总是返回其简化形式。基本类型指的是void、byte、char、short、ushort、int、uint、long、ulong、float、double、decimal、string。可以设置标识TypeName.FullPrimitive来输出基本类型的FCL名称。
+2. 如果类型是一个可空类型，那么返回去其?形式。例如，`int?`、`DateTime?`。可以设置标识TypeName.FullNullable来输出Nullable<xxx>的格式。
+3. 如果类型是一个泛型定义，那么返回其类型名称及其泛型参数的定义名称。例如，`List<T>`。可以设置标识TypeName.OmitGenericParameter来忽略泛型参数。
 4. 如果类型是一个泛型类型，那么返回其类型名称及其泛型参数的类型名称。例如，`List<int>`。
 5. TypeName的每一个部分都是不带namespace的，TypeFullName返回的每一个部分都是带namespace。例如，`List<DateTime>`是TypeName，那么`System.Collections.Generic.List<System.DateTime>`是TypeFullName。
 6. TypeName中返回的任意两个部分具有歧义，那么它们将以TypeFullName的形式返回。例如，`Dictionary<NS1.A,NS2.A>`的TypeName为`Dictionary<NS1.A,NS2.A>`，其TypeFullName为`System.Collections.Generic.Dictionary<NS1.A,NS2.B>`，因为A无法区分NS1.A与NS2.A。
