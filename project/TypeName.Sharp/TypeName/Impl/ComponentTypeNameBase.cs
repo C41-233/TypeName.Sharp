@@ -1,6 +1,5 @@
 ﻿using System;
 using TypeName.Container;
-using TypeName.Filter;
 
 namespace TypeName
 {
@@ -17,11 +16,6 @@ namespace TypeName
 
         internal ComponentTypeNameBase(Type type) : base(type)
         {
-        }
-
-        public override void FilterNamespace(NamespaceFilter filter)
-        {
-            ComponentType.FilterNamespace(filter);
         }
 
     }

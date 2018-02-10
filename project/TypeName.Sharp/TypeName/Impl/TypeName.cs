@@ -48,7 +48,14 @@ namespace TypeName
             return sb.ToString();
         }
 
-        public abstract void FilterNamespace(NamespaceFilter filter);
+        public void FilterNamespace(NamespaceFilter filter)
+        {
+            filter.Add(this);
+            foreach (var name in Generics)
+            {
+                name.FilterNamespace(filter);
+            }
+        }
 
         internal NameIdentity NameIdentity
         {

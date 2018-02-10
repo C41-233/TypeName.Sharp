@@ -20,9 +20,5 @@ namespace TypeName
             }
         }
 
-        public override void FilterNamespace(NamespaceFilter filter)
-        {
-        }
-
     }
 }

@@ -35,14 +35,5 @@ namespace TypeName
             }
         }
 
-        public override void FilterNamespace(NamespaceFilter filter)
-        {
-            filter.Add(this);
-            foreach (var type in Generics)
-            {
-                type.FilterNamespace(filter);
-            }
-        }
-
     }
 }

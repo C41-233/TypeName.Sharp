@@ -27,10 +27,5 @@ namespace TypeName
             Name = type.Name;
         }
 
-        public override void FilterNamespace(NamespaceFilter filter)
-        {
-            filter.Add(this);
-        }
-
     }
 }
