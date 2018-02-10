@@ -1,4 +1,4 @@
-cd project\TypeName
-msbuild TypeName.csproj /t:Rebuild /p:Configuration=Release
-copy ..\bin\Release\TypeName.dll ..\..\dist\TypeName.dll
+cd project\TypeName.Sharp
+msbuild TypeName.Sharp.csproj /t:Rebuild /p:Configuration=Release
+copy ..\bin\Release\TypeName.Sharp.dll ..\..\dist\TypeName.Sharp.dll
 cd ..\..

@@ -1,6 +1,5 @@
 ﻿using System;
 using TypeName.Container;
-using TypeName.Filter;
 
 // ReSharper disable HeuristicUnreachableCode
 // ReSharper disable ConditionIsAlwaysTrueOrFalse

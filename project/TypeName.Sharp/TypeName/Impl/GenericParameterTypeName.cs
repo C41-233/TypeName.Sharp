@@ -1,5 +1,4 @@
 ﻿using System;
-using TypeName.Filter;
 
 namespace TypeName
 {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using TypeName.Container;
-using TypeName.Filter;
 
 namespace TypeName
 {
