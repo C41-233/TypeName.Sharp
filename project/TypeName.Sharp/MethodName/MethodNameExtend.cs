@@ -8,7 +8,7 @@ namespace TypeName
 
         public static string GetDefinitionNameString(this MethodInfo method, TypeNameFlag flags = TypeNameFlag.Default)
         {
-            return null;
+            return GetDefinitionName(method, flags).ToString();
         }
 
         public static string GetDefinitionFullNameString(this MethodInfo method, TypeNameFlag flags = TypeNameFlag.Default)
@@ -25,7 +25,8 @@ namespace TypeName
         {
             var name = new MethodName(method, flags);
             var filter = new NamespaceFilter();
-
+            name.FilterNamespace(filter);
+            filter.ClearNamespace();
             return name;
         }
 

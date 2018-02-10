@@ -49,7 +49,14 @@ namespace TypeName
         {
             ReturnType.FilterNamespace(filter);
             ExplicitInterface?.FilterNamespace(filter);
-            
+            foreach (var name in Generics)
+            {
+                name.FilterNamespace(filter);
+            }
+            foreach (var parameter in Parameters)
+            {
+                parameter.TypeName.FilterNamespace(filter);
+            }
         }
 
         public void ToString(StringBuilder sb)

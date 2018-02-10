@@ -27,7 +27,7 @@ namespace TypeName.Container
                 parameters[i].ToString(sb);
                 if (i != parameters.Count - 1)
                 {
-                    sb.Append(',');
+                    sb.Append(", ");
                 }       
             }
             sb.Append(')');

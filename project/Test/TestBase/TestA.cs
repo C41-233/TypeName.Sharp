@@ -43,6 +43,10 @@ public unsafe class TestA
     {
     }
 
+    public static void Func6(params int[] val)
+    {
+    }
+
     public class TestC<K>
     {
         public static void Func3(List<K> list) { }

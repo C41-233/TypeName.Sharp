@@ -10,5 +10,9 @@ namespace TypeName
         ITypeName TypeName { get; }
         string Name { get; }
         void ToString(StringBuilder sb);
+
+        bool IsOut { get; }
+        bool IsRef { get; }
+        bool IsVarParams { get; }
     }
 }
