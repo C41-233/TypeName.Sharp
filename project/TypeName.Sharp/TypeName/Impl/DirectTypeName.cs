@@ -32,12 +32,5 @@ namespace TypeName
             filter.Add(this);
         }
 
-        public override void ClearNamespace(NamespaceFilter filter)
-        {
-            if (!filter.IsNeedFullName(this))
-            {
-                Namespace.Clear();
-            }
-        }
     }
 }

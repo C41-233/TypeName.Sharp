@@ -12,7 +12,7 @@ namespace TypeName
         public virtual BaseNameList BaseNames => BaseNameList.Empty;
         public virtual string Name => Type.Name;
         public virtual GenericList Generics => GenericList.Empty;
-        public virtual Sign Sign => Sign.Empty;
+        public virtual string Sign => null;
         public virtual ArrayRankList ArrayRanks => ArrayRankList.Empty;
 
         protected TypeName(Type type)
@@ -20,7 +20,7 @@ namespace TypeName
             Type = type;
         }
 
-        internal void ToString(StringBuilder sb)
+        public void ToString(StringBuilder sb)
         {
             if (!Namespace.IsEmpty)
             {
@@ -33,15 +33,12 @@ namespace TypeName
                 sb.Append('.');
             }
             sb.Append(Name);
-            if (!Generics.IsEmpty)
+            Generics.ToString(sb);
+            if (Sign != null)
             {
-                Generics.ToString(sb);
+                sb.Append(Sign);
             }
-            sb.Append(Sign);
-            if (!ArrayRanks.IsEmpty)
-            {
-                ArrayRanks.ToString(sb);
-            }
+            ArrayRanks.ToString(sb);
         }
 
         public override string ToString()
@@ -52,8 +49,6 @@ namespace TypeName
         }
 
         public abstract void FilterNamespace(NamespaceFilter filter);
-
-        public abstract void ClearNamespace(NamespaceFilter filter);
 
         internal NameIdentity NameIdentity
         {
@@ -68,5 +63,9 @@ namespace TypeName
             }
         }
 
+        public override int GetHashCode()
+        {
+            return Type.GetHashCode();
+        }
     }
 }

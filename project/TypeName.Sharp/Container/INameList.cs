@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 
 namespace TypeName.Container
 {
@@ -12,6 +13,7 @@ namespace TypeName.Container
 
         bool IsEmpty { get; }
 
+        void ToString(StringBuilder sb);
     }
 
 

@@ -10,7 +10,7 @@ namespace TypeName
         public override BaseNameList BaseNames => ComponentType.BaseNames;
         public override string Name => ComponentType.Name;
         public override GenericList Generics => ComponentType.Generics;
-        public override Sign Sign => ComponentType.Sign;
+        public override string Sign => ComponentType.Sign;
         public override ArrayRankList ArrayRanks => ComponentType.ArrayRanks;
 
         protected TypeName ComponentType { get; set; }
@@ -24,9 +24,5 @@ namespace TypeName
             ComponentType.FilterNamespace(filter);
         }
 
-        public override void ClearNamespace(NamespaceFilter filter)
-        {
-            ComponentType.ClearNamespace(filter);
-        }
     }
 }

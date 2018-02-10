@@ -41,7 +41,6 @@ public unsafe class TestA
 
     public static void Func5(int* val)
     {
-        DateTime* a;
     }
 
     public class TestC<K>

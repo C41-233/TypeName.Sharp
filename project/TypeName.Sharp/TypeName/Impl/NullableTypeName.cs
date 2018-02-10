@@ -10,7 +10,7 @@ namespace TypeName
         public override BaseNameList BaseNames { get; }
         public override string Name { get; }
         public override GenericList Generics { get; }
-        public override Sign Sign { get; }
+        public override string Sign { get; }
 
         internal NullableTypeName(Type type, TypeNameFlag flags) : base(type)
         {
@@ -23,7 +23,7 @@ namespace TypeName
                 BaseNames = BaseNameList.Empty;
                 Name = nameof(Sign);
                 Generics = new GenericList {componentType};
-                Sign = Sign.Empty;
+                Sign = null;
             }
             else
             {
@@ -31,7 +31,7 @@ namespace TypeName
                 BaseNames = componentType.BaseNames;
                 Name = componentType.Name;
                 Generics = GenericList.Empty;
-                Sign = Sign.Nullable;
+                Sign = SignConstant.Nullable;
             }
         }
 
@@ -44,16 +44,5 @@ namespace TypeName
             }
         }
 
-        public override void ClearNamespace(NamespaceFilter filter)
-        {
-            if (!filter.IsNeedFullName(this))
-            {
-                Namespace.Clear();
-            }
-            foreach (var type in Generics)
-            {
-                type.ClearNamespace(filter);
-            }
-        }
     }
 }

@@ -24,8 +24,5 @@ namespace TypeName
         {
         }
 
-        public override void ClearNamespace(NamespaceFilter filter)
-        {
-        }
     }
 }

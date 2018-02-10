@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace TypeName.Container
 {
-    public sealed class GenericList : INameList<ITypeName>
+    public sealed class GenericList : NameList<ITypeName>
     {
 
         internal static readonly GenericList Empty = new GenericList();
@@ -22,24 +21,21 @@ namespace TypeName.Container
             names.Add(name);
         }
 
-        public IEnumerator<ITypeName> GetEnumerator()
+        public override IEnumerator<ITypeName> GetEnumerator()
         {
             return names.Cast<ITypeName>().GetEnumerator();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public override ITypeName this[int index] => names[index];
+
+        public override int Count => names.Count;
+
+        public override void ToString(StringBuilder sb)
         {
-            return GetEnumerator();
-        }
-
-        public ITypeName this[int index] => names[index];
-
-        public int Count => names.Count;
-
-        public bool IsEmpty => Count == 0;
-
-        internal void ToString(StringBuilder sb)
-        {
+            if (IsEmpty)
+            {
+                return;
+            }
             sb.Append('<');
             for(var i=0; i<names.Count; i++)
             {

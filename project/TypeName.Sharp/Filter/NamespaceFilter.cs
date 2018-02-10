@@ -21,10 +21,16 @@ namespace TypeName.Filter
         private readonly Dictionary<NameIdentity, TypeNameContext> identityToContext = new Dictionary<NameIdentity, TypeNameContext>();
 
         private readonly HashSet<NameIdentity> badIdentities = new HashSet<NameIdentity>();
-        private readonly List<TypeName> badNames = new List<TypeName>();
+        private readonly HashSet<TypeName> badNames = new HashSet<TypeName>();
+        private readonly HashSet<TypeName> allNames = new HashSet<TypeName>();
 
         internal void Add(TypeName name)
         {
+            if (!allNames.Add(name))
+            {
+                return;
+            }
+
             var identity = name.NameIdentity;
             if (badIdentities.Contains(identity))
             {
@@ -48,14 +54,23 @@ namespace TypeName.Filter
             }
 
             badIdentities.Add(identity);
-            badNames.AddRange(context.Names);
+            foreach (var n in context.Names)
+            {
+                badNames.Add(n);
+            }
             badNames.Add(name);
             identityToContext.Remove(identity);
         }
 
-        internal bool IsNeedFullName(TypeName name)
+        public void ClearNamespace()
         {
-            return badNames.Contains(name);
+            foreach (var name in allNames)
+            {
+                if (!badNames.Contains(name))
+                {
+                    name.Namespace.Clear();
+                }
+            }
         }
 
     }

@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace TypeName.Container
 {
-    public sealed class BaseNameList : INameList<ITypeNameView>
+    public sealed class BaseNameList : NameList<ITypeNameView>
     {
 
         internal static readonly BaseNameList Empty = new BaseNameList();
@@ -22,23 +21,16 @@ namespace TypeName.Container
             names.Insert(0, type);
         }
 
-        public IEnumerator<ITypeNameView> GetEnumerator()
+        public override IEnumerator<ITypeNameView> GetEnumerator()
         {
             return names.Cast<ITypeNameView>().GetEnumerator();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+        public override ITypeNameView this[int index] => names[index];
 
-        public ITypeNameView this[int index] => names[index];
+        public override int Count => names.Count;
 
-        public int Count => names.Count;
-
-        public bool IsEmpty => Count == 0;
-
-        internal void ToString(StringBuilder sb)
+        public override void ToString(StringBuilder sb)
         {
             for (var i = 0; i < names.Count; i++)
             {

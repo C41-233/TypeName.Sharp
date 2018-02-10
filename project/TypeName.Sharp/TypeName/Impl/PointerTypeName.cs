@@ -1,13 +1,11 @@
 ﻿using System;
-using TypeName.Container;
-using TypeName.Filter;
 
 namespace TypeName
 {
     internal sealed class PointerTypeName : ComponentTypeNameBase
     {
 
-        public override Sign Sign => Sign.Pointer;
+        public override string Sign => SignConstant.Pointer;
 
         internal PointerTypeName(Type type, TypeNameFlag flags) : base(type)
         {

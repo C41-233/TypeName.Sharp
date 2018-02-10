@@ -6,18 +6,18 @@ namespace TypeName
 {
     internal sealed class RefTypeName : ComponentTypeNameBase
     {
-        public override Sign Sign { get; }
+        public override string Sign { get; }
 
         internal RefTypeName(Type type, TypeNameFlag flags) : base(type)
         {
             ComponentType = TypeNameFactory.Create(type.GetElementType(), flags);
             if (flags.Has(TypeNameFlag.ExplicitRef))
             {
-                Sign = Sign.Ref;
+                Sign = SignConstant.Ref;
             }
             else
             {
-                Sign = Sign.Empty;
+                Sign = null;
             }
         }
     }

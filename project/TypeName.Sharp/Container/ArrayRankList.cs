@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 
 namespace TypeName.Container
 {
-    public sealed class ArrayRankList : INameList<int>
+    public sealed class ArrayRankList : NameList<int>
     {
 
         internal static readonly ArrayRankList Empty = new ArrayRankList();
@@ -21,23 +20,16 @@ namespace TypeName.Container
             ranks.Add(value);
         }
 
-        public IEnumerator<int> GetEnumerator()
+        public override IEnumerator<int> GetEnumerator()
         {
             return ranks.GetEnumerator();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+        public override int this[int index] => ranks[index];
 
-        public int this[int index] => ranks[index];
+        public override int Count => ranks.Count;
 
-        public int Count => ranks.Count;
-
-        public bool IsEmpty => Count == 0;
-
-        internal void ToString(StringBuilder sb)
+        public override void ToString(StringBuilder sb)
         {
             foreach (var rank in ranks)
             {

@@ -68,16 +68,5 @@ namespace TypeName
             }
         }
 
-        public override void ClearNamespace(NamespaceFilter filter)
-        {
-            if (!filter.IsNeedFullName(this))
-            {
-                Namespace.Clear();
-            }
-            foreach (var type in Generics)
-            {
-                type.ClearNamespace(filter);
-            }
-        }
     }
 }

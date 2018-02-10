@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace TypeName.Container
 {
-    public sealed class Namespace : INameList<string>
+    public sealed class Namespace : NameList<string>
     {
 
         private static readonly string[] EmptyArray = new string[0];
@@ -27,21 +26,14 @@ namespace TypeName.Container
             tokens = ns?.Split('.') ?? EmptyArray;
         }
 
-        public IEnumerator<string> GetEnumerator()
+        public override IEnumerator<string> GetEnumerator()
         {
             return RuntimeTokens.Cast<string>().GetEnumerator();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return RuntimeTokens.GetEnumerator();
-        }
+        public override string this[int index] => RuntimeTokens[index];
 
-        public string this[int index] => RuntimeTokens[index];
-
-        public int Count => RuntimeTokens.Length;
-
-        public bool IsEmpty => Count == 0;
+        public override int Count => RuntimeTokens.Length;
 
         internal void Clear()
         {
@@ -53,7 +45,7 @@ namespace TypeName.Container
             return IsFullName ? FullName : "";
         }
 
-        internal void ToString(StringBuilder sb)
+        public override void ToString(StringBuilder sb)
         {
             sb.Append(ToString());
         }

@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Text;
 using TypeName.Container;
 using TypeName.Filter;
 
 namespace TypeName
 {
-    public interface ITypeName
+    public interface ITypeName : IFilterNamespaceElement
     {
 
         Type Type { get; }
@@ -17,13 +18,11 @@ namespace TypeName
 
         GenericList Generics { get; }
 
-        Sign Sign { get; }
+        string Sign { get; }
 
         ArrayRankList ArrayRanks { get; }
 
-        void FilterNamespace(NamespaceFilter filter);
-
-        void ClearNamespace(NamespaceFilter filter);
+        void ToString(StringBuilder sb);
 
     }
 }
