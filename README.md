@@ -1,4 +1,4 @@
-# TypeName
+# TypeName.Sharp
 C#反射类型的字符串格式化输出
 
 有时候我们想输出某一个类型的符合C#语法的字符串，例如一个根据接口自动生成实现类的代码生成器，通过反射获取System.MethodInfo后，需要输出其对应的C#函数定义字符串，根据情况我们可以自己选择名称中是否需要包含namespace。
@@ -8,7 +8,7 @@ Framework提供的System.Type有三个获取字符串名称的属性/函数，�
 2. 多层级的数组类型与语法形式相反，例如`int[][,]`会被输出成`System.Int32[,][]`。
 3. 泛型类型，例如`List<T>`会被输出成<code>System.Collections.Generic.List\`1</code>，而`List<int>`甚至被输出成<code>System.Collections.Generic.List\`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</code>。
 
-具体的输出结果参见：https://c41-233.github.io/TypeName/source-name.html
+具体的输出结果参见：https://c41-233.github.io/TypeName.Sharp/source-name.html
 
 TypeName为Type、Method、Property、Field、Parameter添加了一些扩展函数来处理所有情况，使得一个类型能够按照语法形式输出。
 
