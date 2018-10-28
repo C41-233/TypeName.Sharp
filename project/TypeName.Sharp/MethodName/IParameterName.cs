@@ -7,12 +7,9 @@ namespace TypeName
     {
 
         ParameterInfo Parameter { get; }
+        string Modifier { get; }
         ITypeName TypeName { get; }
         string Name { get; }
         void ToString(StringBuilder sb);
-
-        bool IsOut { get; }
-        bool IsRef { get; }
-        bool IsVarParams { get; }
     }
 }

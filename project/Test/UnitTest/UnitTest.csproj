@@ -39,7 +39,8 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MethodNameTest.cs" />
+    <Compile Include="MethodNameTest1.cs" />
+    <Compile Include="MethodNameTest2.cs" />
     <Compile Include="TypeNameTest1.cs" />
     <Compile Include="TypeNameTest2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

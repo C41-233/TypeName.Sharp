@@ -6,7 +6,7 @@ namespace TypeName
     internal sealed class NullableTypeName : TypeName
     {
         public override Namespace Namespace { get; }
-        public override BaseNameList BaseNames { get; }
+        public override EnclosingNameList EnclosingNames { get; }
         public override string Name { get; }
         public override GenericList Generics { get; }
         public override string Sign { get; }
@@ -19,15 +19,15 @@ namespace TypeName
             if (flags.Has(TypeNameFlag.FullNullable))
             {
                 Namespace = new Namespace(type.Namespace);
-                BaseNames = BaseNameList.Empty;
-                Name = nameof(Sign);
+                EnclosingNames = EnclosingNameList.Empty;
+                Name = nameof(Nullable);
                 Generics = new GenericList {componentType};
                 Sign = null;
             }
             else
             {
                 Namespace = componentType.Namespace;
-                BaseNames = componentType.BaseNames;
+                EnclosingNames = componentType.EnclosingNames;
                 Name = componentType.Name;
                 Generics = GenericList.Empty;
                 Sign = SignConstant.Nullable;

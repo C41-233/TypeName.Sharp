@@ -9,14 +9,14 @@ namespace TypeName
     {
 
         public override Namespace Namespace { get; }
-        public override BaseNameList BaseNames { get; }
+        public override EnclosingNameList EnclosingNames { get; }
         public override string Name { get; }
         public override GenericList Generics { get; }
 
         public GenericTypeName(Type type, TypeNameFlag flags) : base(type)
         {
             Namespace = new Namespace(type.Namespace);
-            BaseNames = new BaseNameList();
+            EnclosingNames = new EnclosingNameList();
             Generics = new GenericList();
 
             var visitor = new GenericVisitor(type);
@@ -27,11 +27,11 @@ namespace TypeName
                 {
                     if (super.IsGenericType)
                     {
-                        BaseNames.AddBefore(new TypeNameView(super, visitor, flags));
+                        EnclosingNames.AddBefore(new TypeNameView(super, visitor, flags));
                     }
                     else
                     {
-                        BaseNames.AddBefore(new TypeNameView(super));
+                        EnclosingNames.AddBefore(new TypeNameView(super));
                     }
                     super = super.DeclaringType;
                 }

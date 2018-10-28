@@ -12,7 +12,7 @@
     "name": "KeyCollection",
     "fullname": "System.Collections.Generic.Dictionary`2+KeyCollection[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Text.StringBuilder, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
     "tostring": "System.Collections.Generic.Dictionary`2+KeyCollection[System.Int64,System.Text.StringBuilder]",
-    "sourcename": "Dictionary<long,StringBuilder>.KeyCollection",
+    "sourcename": "Dictionary<long,System.Text.StringBuilder>.KeyCollection",
     "sourcefullname": "System.Collections.Generic.Dictionary<long,System.Text.StringBuilder>.KeyCollection"
   }
 ]

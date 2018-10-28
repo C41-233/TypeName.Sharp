@@ -4,14 +4,14 @@ using System.Text;
 
 namespace TypeName.Container
 {
-    public sealed class BaseNameList : NameList<ITypeNameView>
+    public sealed class EnclosingNameList : NameList<ITypeNameView>
     {
 
-        internal static readonly BaseNameList Empty = new BaseNameList();
+        internal static readonly EnclosingNameList Empty = new EnclosingNameList();
 
         private readonly List<TypeNameView> names;
 
-        internal BaseNameList()
+        internal EnclosingNameList()
         {
             names = new List<TypeNameView>();
         }

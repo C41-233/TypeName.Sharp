@@ -13,6 +13,8 @@ namespace TypeNameTest
         {
             Assert.AreEqual("int", typeof(int).GetTypeNameString());
             Assert.AreEqual("int", typeof(int).GetTypeFullNameString());
+            Assert.AreEqual("Int32", typeof(int).GetTypeNameString(TypeNameFlag.FullPrimitive));
+            Assert.AreEqual("System.Int32", typeof(int).GetTypeFullNameString(TypeNameFlag.FullPrimitive));
 
             Assert.AreEqual("string", typeof(string).GetTypeNameString());
             Assert.AreEqual("string", typeof(string).GetTypeFullNameString());

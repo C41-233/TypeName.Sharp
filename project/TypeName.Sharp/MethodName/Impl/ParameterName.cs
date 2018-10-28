@@ -7,13 +7,9 @@ namespace TypeName
     internal sealed class ParameterName : IParameterName
     {
         public ParameterInfo Parameter { get; }
-        public string PassBy { get; }
+        public string Modifier { get; }
         public ITypeName TypeName { get; }
         public string Name { get; }
-
-        public bool IsOut { get; }
-        public bool IsRef { get; }
-        public bool IsVarParams { get; }
 
         internal ParameterName(ParameterInfo parameter, TypeNameFlag flags)
         {
@@ -23,33 +19,30 @@ namespace TypeName
 
             if (parameter.IsOut)
             {
-                IsOut = true;
-                PassBy = "out";
+                Modifier = "out";
             }
             else if (parameter.ParameterType.IsByRef)
             {
-                IsRef = true;
                 if (!flags.Has(TypeNameFlag.ExplicitRef))
                 {
-                    PassBy = "ref";
+                    Modifier = "ref";
                 }
             }
             else if (parameter.GetCustomAttributes(typeof(ParamArrayAttribute), false).Length > 0)
             {
-                IsVarParams = true;
-                PassBy = "params";
+                Modifier = "params";
             }
             else
             {
-                PassBy = null;
+                Modifier = null;
             }
         }
 
         public void ToString(StringBuilder sb)
         {
-            if (PassBy != null)
+            if (Modifier != null)
             {
-                sb.Append(PassBy);
+                sb.Append(Modifier);
                 sb.Append(" ");
             }
             TypeName.ToString(sb);

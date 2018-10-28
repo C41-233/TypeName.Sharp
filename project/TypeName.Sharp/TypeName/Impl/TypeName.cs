@@ -9,7 +9,7 @@ namespace TypeName
     {
         public Type Type { get; }
         public virtual Namespace Namespace => Namespace.Empty;
-        public virtual BaseNameList BaseNames => BaseNameList.Empty;
+        public virtual EnclosingNameList EnclosingNames => EnclosingNameList.Empty;
         public virtual string Name => Type.Name;
         public virtual GenericList Generics => GenericList.Empty;
         public virtual string Sign => null;
@@ -27,9 +27,9 @@ namespace TypeName
                 Namespace.ToString(sb);
                 sb.Append('.');
             }
-            if (!BaseNames.IsEmpty)
+            if (!EnclosingNames.IsEmpty)
             {
-                BaseNames.ToString(sb);
+                EnclosingNames.ToString(sb);
                 sb.Append('.');
             }
             sb.Append(Name);
@@ -61,11 +61,11 @@ namespace TypeName
         {
             get
             {
-                if (BaseNames.IsEmpty)
+                if (EnclosingNames.IsEmpty)
                 {
                     return new NameIdentity(Name, Generics.Count);
                 }
-                var name = BaseNames[0];
+                var name = EnclosingNames[0];
                 return new NameIdentity(name.Name, name.Generics.Count);
             }
         }

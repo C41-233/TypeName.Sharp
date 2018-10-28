@@ -37,7 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Container\ArrayRankList.cs" />
-    <Compile Include="Container\BaseNameList.cs" />
+    <Compile Include="Container\EnclosingNameList.cs" />
     <Compile Include="Container\GenericList.cs" />
     <Compile Include="Container\NameList.cs" />
     <Compile Include="Container\ParameterList.cs" />

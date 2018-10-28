@@ -4,7 +4,7 @@ using TypeName;
 namespace TypeNameTest
 {
     [TestClass]
-    public class MethodNameTest
+    public class MethodNameTest1
     {
 
         [TestMethod]

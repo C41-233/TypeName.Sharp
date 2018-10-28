@@ -19,8 +19,20 @@ namespace TypeName
         {
             Method = method;
             ReturnType = TypeNameFactory.Create(method.ReturnType, flags);
-            Name = method.Name;
-            ExplicitInterface = null;
+
+            if (!method.Name.Contains("."))
+            {
+                Name = method.Name;
+                ExplicitInterface = null;
+            }
+            else
+            {
+                var iSplit = method.Name.LastIndexOf('.');
+                var interfacePart = method.Name.Substring(0, iSplit);
+                Name = method.Name.Substring(iSplit + 1);
+                var interfaceType = method.DeclaringType.GetInterface(interfacePart);
+                ExplicitInterface = TypeNameFactory.Create(interfaceType, flags);
+            }
 
             Generics = new GenericList();
             if (method.IsGenericMethod)
@@ -63,6 +75,11 @@ namespace TypeName
         {
             ReturnType.ToString(sb);
             sb.Append(" ");
+            if (ExplicitInterface != null)
+            {
+                sb.Append(ExplicitInterface);
+                sb.Append('.');
+            }
             sb.Append(Name);
             Generics.ToString(sb);
             Parameters.ToString(sb);
