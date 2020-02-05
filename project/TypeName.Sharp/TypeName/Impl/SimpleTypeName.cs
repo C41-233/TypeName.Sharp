@@ -11,6 +11,7 @@ namespace TypeName
 
         static SimpleTypeName()
         {
+            SimpleNames[typeof(bool)] = "bool";
             SimpleNames[typeof(byte)] = "byte";
             SimpleNames[typeof(sbyte)] = "byte";
             SimpleNames[typeof(char)] = "char";

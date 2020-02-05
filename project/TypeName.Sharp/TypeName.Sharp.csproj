@@ -50,6 +50,7 @@
     <Compile Include="Container\GenericList.cs" />
     <Compile Include="Container\NameList.cs" />
     <Compile Include="Container\ParameterList.cs" />
+    <Compile Include="DocumentName\DocumentNameExtend.cs" />
     <Compile Include="Filter\IFilterNamespaceElement.cs" />
     <Compile Include="MethodName\Impl\ParameterName.cs" />
     <Compile Include="TypeName\SignConstant.cs" />
@@ -79,9 +80,11 @@
     <Compile Include="TypeName\Impl\TypeNameView.cs" />
     <Compile Include="Filter\NamespaceFilter.cs" />
     <Compile Include="Filter\NameIdentity.cs" />
+    <Compile Include="Utils\StringUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C41.pfx" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
