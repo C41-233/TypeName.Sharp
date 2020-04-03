@@ -13,19 +13,20 @@ namespace TypeName
         {
             SimpleNames[typeof(bool)] = "bool";
             SimpleNames[typeof(byte)] = "byte";
-            SimpleNames[typeof(sbyte)] = "byte";
+            SimpleNames[typeof(sbyte)] = "sbyte";
             SimpleNames[typeof(char)] = "char";
             SimpleNames[typeof(short)] = "short";
-            SimpleNames[typeof(int)] = "int";
-            SimpleNames[typeof(long)] = "long";
             SimpleNames[typeof(ushort)] = "ushort";
+            SimpleNames[typeof(int)] = "int";
             SimpleNames[typeof(uint)] = "uint";
+            SimpleNames[typeof(long)] = "long";
             SimpleNames[typeof(ulong)] = "ulong";
             SimpleNames[typeof(float)] = "float";
             SimpleNames[typeof(double)] = "double";
             SimpleNames[typeof(decimal)] = "decimal";
             SimpleNames[typeof(void)] = "void";
             SimpleNames[typeof(string)] = "string";
+            SimpleNames[typeof(object)] = "object";
         }
 
         internal static bool IsSimpleType(Type type)
